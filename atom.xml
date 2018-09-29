@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-29T06:13:34.562Z</updated>
+  <updated>2018-09-29T06:14:23.500Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,15 +21,17 @@
     <link href="http://yoursite.com/2018/09/28/first-blog/"/>
     <id>http://yoursite.com/2018/09/28/first-blog/</id>
     <published>2018-09-28T07:23:00.411Z</published>
-    <updated>2018-09-29T06:13:34.562Z</updated>
+    <updated>2018-09-29T06:14:23.500Z</updated>
     
-    <content type="html"><![CDATA[<p>welcome to my first blog, to be continued 。。。</p>]]></content>
+    <content type="html"><![CDATA[<ul><li>welcome to my first blog, to be continued 。。。</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;welcome to my first blog, to be continued 。。。&lt;/p&gt;
+        &lt;ul&gt;
+&lt;li&gt;welcome to my first blog, to be continued 。。。&lt;/li&gt;
+&lt;/ul&gt;
 
       
     
