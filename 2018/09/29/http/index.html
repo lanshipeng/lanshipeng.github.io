@@ -74,24 +74,24 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="meiscpu's notes" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Thinker's Notes" type="application/atom+xml" />
 
 
 
 
 
 
-<meta name="description" content="http通信的过程 建立tcp链接 web浏览器向web服务器发送请求命令 web浏览器发送请求头消息 web服务器应答 web服务器发送应答头消息 web服务器向浏览器发送数据 web服务器关闭tcp链接  HTTP2.0和HTTP1.X相比的新特性 1.新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做">
+<meta name="description" content="http通信的过程(1) 建立tcp链接(2) web浏览器向web服务器发送请求命令(3) web浏览器发送请求头消息(4) web服务器应答(5) web服务器发送应答头消息(6) web服务器向浏览器发送数据(7) web服务器关闭tcp链接   HTTP2.0和HTTP1.X相比的新特性1.新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http通信原理">
+<meta property="og:title" content="http相关特性">
 <meta property="og:url" content="http://yoursite.com/2018/09/29/http/index.html">
-<meta property="og:site_name" content="meiscpu&#39;s notes">
-<meta property="og:description" content="http通信的过程 建立tcp链接 web浏览器向web服务器发送请求命令 web浏览器发送请求头消息 web服务器应答 web服务器发送应答头消息 web服务器向浏览器发送数据 web服务器关闭tcp链接  HTTP2.0和HTTP1.X相比的新特性 1.新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做">
+<meta property="og:site_name" content="Thinker&#39;s Notes">
+<meta property="og:description" content="http通信的过程(1) 建立tcp链接(2) web浏览器向web服务器发送请求命令(3) web浏览器发送请求头消息(4) web服务器应答(5) web服务器发送应答头消息(6) web服务器向浏览器发送数据(7) web服务器关闭tcp链接   HTTP2.0和HTTP1.X相比的新特性1.新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-29T10:23:26.692Z">
+<meta property="og:updated_time" content="2018-10-25T11:46:37.781Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http通信原理">
-<meta name="twitter:description" content="http通信的过程 建立tcp链接 web浏览器向web服务器发送请求命令 web浏览器发送请求头消息 web服务器应答 web服务器发送应答头消息 web服务器向浏览器发送数据 web服务器关闭tcp链接  HTTP2.0和HTTP1.X相比的新特性 1.新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做">
+<meta name="twitter:title" content="http相关特性">
+<meta name="twitter:description" content="http通信的过程(1) 建立tcp链接(2) web浏览器向web服务器发送请求命令(3) web浏览器发送请求头消息(4) web服务器应答(5) web服务器发送应答头消息(6) web服务器向浏览器发送数据(7) web服务器关闭tcp链接   HTTP2.0和HTTP1.X相比的新特性1.新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title>http通信原理 | meiscpu's notes</title>
+  <title>http相关特性 | Thinker's Notes</title>
   
 
 
@@ -157,7 +157,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">meiscpu's notes</span>
+        <span class="site-title">Thinker's Notes</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -283,11 +283,11 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lan_shipeng">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/images/head.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="meiscpu's notes">
+      <meta itemprop="name" content="Thinker's Notes">
     </span>
 
     
@@ -295,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">http通信原理</h1>
+          <h1 class="post-title" itemprop="name headline">http相关特性</h1>
         
 
         <div class="post-meta">
@@ -357,7 +357,7 @@
 
           
           
-             <span id="/2018/09/29/http/" class="leancloud_visitors" data-flag-title="http通信原理">
+             <span id="/2018/09/29/http/" class="leancloud_visitors" data-flag-title="http相关特性">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -388,25 +388,11 @@
       
 
       
-        <h3 id="http通信的过程"><a href="#http通信的过程" class="headerlink" title="http通信的过程"></a>http通信的过程</h3><ul>
-<li>建立tcp链接</li>
-<li>web浏览器向web服务器发送请求命令</li>
-<li>web浏览器发送请求头消息</li>
-<li>web服务器应答</li>
-<li>web服务器发送应答头消息</li>
-<li>web服务器向浏览器发送数据</li>
-<li>web服务器关闭tcp链接</li>
-</ul>
-<h3 id="HTTP2-0和HTTP1-X相比的新特性"><a href="#HTTP2-0和HTTP1-X相比的新特性" class="headerlink" title="HTTP2.0和HTTP1.X相比的新特性"></a>HTTP2.0和HTTP1.X相比的新特性</h3><ul>
-<li><p>1.新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认0和1的组合。基于这种考虑HTTP2.0的协议解析决定采用二进制格式，实现方便且健壮。</p>
-</li>
-<li><p>2.多路复用（MultiPlexing），即连接共享，即每一个request都是是用作连接共享机制的。一个request对应一个id，这样一个连接上可以有多个request，每个连接的request可以随机的混杂在一起，接收方可以根据request的 id将request再归属到各自不同的服务端请求里面。</p>
-</li>
-<li><p>3.header压缩，如上文中所言，对前面提到过HTTP1.x的header带有大量信息，而且每次都要重复发送，HTTP2.0使用encoder来减少需要传输的header大小，通讯双方各自cache一份header fields表，既避免了重复header的传输，又减小了需要传输的大小。</p>
-</li>
-<li><p>4.服务端推送（server push），同SPDY一样，HTTP2.0也具有server push功能。</p>
-</li>
-</ul>
+        <h3 id="http通信的过程"><a href="#http通信的过程" class="headerlink" title="http通信的过程"></a>http通信的过程</h3><p>(1) 建立tcp链接<br>(2) web浏览器向web服务器发送请求命令<br>(3) web浏览器发送请求头消息<br>(4) web服务器应答<br>(5) web服务器发送应答头消息<br>(6) web服务器向浏览器发送数据<br>(7) web服务器关闭tcp链接  </p>
+<h3 id="HTTP2-0和HTTP1-X相比的新特性"><a href="#HTTP2-0和HTTP1-X相比的新特性" class="headerlink" title="HTTP2.0和HTTP1.X相比的新特性"></a>HTTP2.0和HTTP1.X相比的新特性</h3><p>1.新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认0和1的组合。基于这种考虑HTTP2.0的协议解析决定采用二进制格式，实现方便且健壮。</p>
+<p>2.多路复用（MultiPlexing），即连接共享，即每一个request都是是用作连接共享机制的。一个request对应一个id，这样一个连接上可以有多个request，每个连接的request可以随机的混杂在一起，接收方可以根据request的 id将request再归属到各自不同的服务端请求里面。</p>
+<p>3.header压缩，如上文中所言，对前面提到过HTTP1.x的header带有大量信息，而且每次都要重复发送，HTTP2.0使用encoder来减少需要传输的header大小，通讯双方各自cache一份header fields表，既避免了重复header的传输，又减小了需要传输的大小。</p>
+<p>4.服务端推送（server push），同SPDY一样，HTTP2.0也具有server push功能。</p>
 
       
     </div>
@@ -440,6 +426,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/23/datastruct/" rel="prev" title="单链表">
+                单链表 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -513,7 +503,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
+                src="/images/head.png"
                 alt="lan_shipeng" />
             
               <p class="site-author-name" itemprop="name">lan_shipeng</p>
@@ -527,7 +517,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -538,12 +528,21 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -1284,13 +1283,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = 'http通信原理'.length > 0
+      var isPost = 'http相关特性'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = 'http通信原理'
+        var title = 'http相关特性'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))

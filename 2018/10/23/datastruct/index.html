@@ -68,12 +68,10 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="链表," />
 
 
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="Thinker's Notes" type="application/atom+xml" />
@@ -83,14 +81,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="单链表的创建、插入、删除 倒置 go       type ListNode struct{ value int next *ListNode   }  //创建单链表  func (this ListNode)CreateList()ListNode{ head := new(ListNode) ptail := new(ListNode) ptail = head for i :=0; i &amp;">
+<meta name="keywords" content="链表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单链表">
+<meta property="og:url" content="http://yoursite.com/2018/10/23/datastruct/index.html">
 <meta property="og:site_name" content="Thinker&#39;s Notes">
+<meta property="og:description" content="单链表的创建、插入、删除 倒置 go       type ListNode struct{ value int next *ListNode   }  //创建单链表  func (this ListNode)CreateList()ListNode{ head := new(ListNode) ptail := new(ListNode) ptail = head for i :=0; i &amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-29T10:22:38.868Z">
+<meta property="og:updated_time" content="2018-10-25T08:28:44.157Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="单链表">
+<meta name="twitter:description" content="单链表的创建、插入、删除 倒置 go       type ListNode struct{ value int next *ListNode   }  //创建单链表  func (this ListNode)CreateList()ListNode{ head := new(ListNode) ptail := new(ListNode) ptail = head for i :=0; i &amp;">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/23/datastruct/"/>
 
 
 
 
 
-  <title>categories | Thinker's Notes</title>
+  <title>单链表 | Thinker's Notes</title>
   
 
 
@@ -265,40 +267,281 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/23/datastruct/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lan_shipeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Thinker's Notes">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 5 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hello/">Hello</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/数据库规范/">数据库规范</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/协议/">协议</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">2</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">单链表</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-23T18:22:15+08:00">
+                2018-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/23/datastruct/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/10/23/datastruct/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/23/datastruct/" class="leancloud_visitors" data-flag-title="单链表">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h4 id="单链表的创建、插入、删除-倒置"><a href="#单链表的创建、插入、删除-倒置" class="headerlink" title="单链表的创建、插入、删除 倒置"></a>单链表的创建、插入、删除 倒置</h4><ul>
+<li><p>go</p>
+<p>  
+
+</p><p>  type ListNode struct{</p>
+<pre><code>value int
+next *ListNode
+</code></pre><p>  }<br>  //创建单链表<br>  func (this <em>ListNode)CreateList()</em>ListNode{</p>
+<pre><code>head := new(ListNode)
+ptail := new(ListNode)
+ptail = head
+for i :=0; i &lt;= 10; i++{
+     xNode := new(ListNode)     
+     xNode.value = i
+     xNode.next = nil 
+     ptail.next = xNode
+     ptail = xNode
+}
+return phead
+</code></pre><p>  }<br>  //删除节点<br>  func (this <em>ListNode)DeleteListNod(head</em> ListNode,val int){  </p>
+<pre><code>if head == nil{
+    return nil
+}
+
+temp := new(ListNode)
+p := new(ListNode)
+p = head
+for p.next != nil &amp;&amp; p.value != val{
+    temp = p
+    p = p.next
+}
+if p.value == val{
+    if p == head{
+        head = temp.next
+    }else{
+        temp.next = p.next
+    }
+}
+return head
+</code></pre><p>  }<br>  //插入节点<br>  func (this <em>ListNode)InsertNode(head</em> ListNode,val int)*ListNode{</p>
+<pre><code>if head == nil{
+    return
+}
+xNode := new(ListNode)
+xNode.value = val
+xNode.next = nil
+
+temp := new(ListNode)
+p := new(ListNode)
+p = head
+for p.next != nil &amp;&amp; p.value &lt; val{
+    temp = p
+    p = p.next
+}
+if p.value &lt;= val{
+    if p == head{
+        head = xNode
+        xNode.next = p
+    }else{
+        temp.next = xNode
+        xNode.next = p
+    }
+
+}else{
+    p.next = xNode
+    xNode.next = nil
+}
+return head
+</code></pre><p>  }<br>  //链表倒置<br>  func (this <em>ListNode)Reverse(head</em> ListNode)*ListNode{</p>
+<pre><code>if head==nil{
+    return nil
+}
+temp := new(ListNode)
+p := new(ListNode)
+p = head.next
+head.next=nil
+for p != nil{
+    temp = temp.next
+    temp.next = head
+    head = p
+    p = temp
+}
+return head
+</code></pre><p>  }</p>
+</li>
+</ul>
+<p></p><p></p>
+<ul>
+<li><p>c++</p>
+<p><br><br>  struct ListNode{<br><br>      ListNode <em>next;<br>      int val;<br><br>  }<br>  class Solution{<br>  public:<br>      ListNode</em> CreateListNode(){<br><br>          ListNode<em> head =new ListNode;<br>          p = head;<br>          for (int i =0; i &lt;10; i++){<br>              ListNode</em> node =new ListNode;<br>              node -&gt; next =NULL;<br>              node -&gt; val = i;<br>              p-&gt;next = node;<br>              p = node;<br>          }<br>          p-&gt;next = NULL;<br>          return head;<br><br>      }<br>      ListNode<em> DeletedListNode(ListNode</em> head,int val){<br>          if head == NULL{<br>              return NULL;<br>          }<br>          ListNode<em> temp = NULL;<br>          ListNode</em> p = head;<br>          while(p-&gt;next != NULL &amp;&amp; p-&gt;val != val){<br>              temp = p;<br>              p = p-&gt;next;<br>          }<br>          if (p-&gt;val == val){<br>              if (p == head){<br>                  head = p-&gt;next;<br>                  delete p;<br>              }<br>              else{<br>                  temp-&gt;next = p-&gt;next;<br>                  delete p;<br>              }<br>          }<br>          return head;<br>      }<br>      ListNode<em> InsertListNode(ListNode</em> head,int val){<br><br>          ListNode<em> p = head;<br>          ListNode</em> temp = NULL;<br><br>          ListNode<em> node = new ListNode;<br>          node-&gt;val = val;<br><br>          while(p-&gt;next != NULL &amp;&amp; p-&gt;val &lt; node-&gt;val){<br>              temp = p;<br>              p= p-&gt;next;<br>          }<br>          if (node-&gt;val &lt;= p-&gt;val){<br>              if (p == head){//头部插入<br>                  head = node;<br>                  node -&gt; next = p;<br>              }else{//中间插入<br>                  temp -&gt; next = node;<br>                  node -&gt; next = p;<br>              }<br>          }else{//链表尾部插入<br>              p-&gt;next = node;<br>              node-&gt;next = NULL;<br>          }<br>          return head;<br>      }<br>      ListNode</em> ReverseListNode(ListNode<em> head){<br>          if (head == NULL){<br>              return NULL;<br>          }<br>          ListNode</em> temp = NULL;<br>          ListNode<em> p = head;<br>          head-&gt;next = NULL;<br>          while(p!=NULL){<br>              temp = p-&gt;next;<br>              p-&gt;next = head;<br>              head = p;<br>              p = temp;<br>          }<br>          return head;<br>      }<br>      ListNode</em> DeleteListNode(ListNode<em> head,int val){<br><br>          if (head == NULL) return NULL;<br>          ListNode</em> temp = NULL;<br>          ListNode<em> p = head;<br>          while(val &lt; p-&gt;val &amp;&amp; p-&gt;next !=NULL){<br>          temp = p;<br>          p = p-&gt;next;<br>          }<br>          if (p-&gt;val == val){<br>              if (p == head){<br>              head = p-&gt;next;<br>              delete p;<br>              }else{<br>                  temp-&gt;next = p-&gt;next;<br>                  delete p;<br>              }<br>          }<br>      return head;<br>      }<br>      ListNode</em> InsertListNode(ListNode<em> head,int val){<br><br>          ListNode</em> temp = NULL;<br>          ListNode<em> p = head;<br><br>          ListNode</em> newNode = new ListNode;<br>          newNode-&gt;val = val;<br><br>          while(val &lt; p-&gt;val &amp;&amp; p-&gt;next !=NULL){<br>          temp = p;<br>          p = p-&gt;next;<br>          }<br>          if (p-&gt;val &lt;= newNode-&gt;val ){<br>              if(p == head){<br>                  head = newNode;<br>                  newNode-&gt;next = p;<br>              }else{<br>                  temp-&gt;next = newNode;<br>                  newNode-&gt;next = p;<br>              }<br><br>          }else{//尾部插入<br>              p-&gt;next = newNode;<br>              newNode-&gt;next = NULL;<br>          }<br>      }<br>  }<br></p></li>
+</ul>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/链表/" rel="tag"># 链表</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/29/http/" rel="next" title="http相关特性">
+                <i class="fa fa-chevron-left"></i> http相关特性
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/25/sort/" rel="prev" title="排序">
+                排序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -338,8 +581,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -426,6 +678,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#单链表的创建、插入、删除-倒置"><span class="nav-number">1.</span> <span class="nav-text">单链表的创建、插入、删除 倒置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1108,13 +1376,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = 'categories'.length > 0
+      var isPost = '单链表'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = 'categories'
+        var title = '单链表'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
