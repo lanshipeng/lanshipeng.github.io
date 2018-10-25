@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="mysql,数据库规范," />
 
 
 
@@ -82,13 +82,14 @@
 
 
 <meta name="description" content="基本规范 表存储引擎设置为innodb 表字符集默认使用utf8,必要时使用utf8mb4。utf8mb4是utf8的超集,有存储4字节例如表情符号时使用他。 禁止数据库中存储大文件,例如照片.可以将大文件存储在对象存储系统中。数据库存储路径  一般不使用存储过程、视图、触发器,event.对数据库性能影响大，调试，排错，迁移都比较困难.拓展性差  对于互联网业务，能让站点层和服务层干的事,不要交">
+<meta name="keywords" content="mysql,数据库规范">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql数据库使用规范总结">
 <meta property="og:url" content="http://yoursite.com/2018/10/25/sql/index.html">
 <meta property="og:site_name" content="Thinker&#39;s Notes">
 <meta property="og:description" content="基本规范 表存储引擎设置为innodb 表字符集默认使用utf8,必要时使用utf8mb4。utf8mb4是utf8的超集,有存储4字节例如表情符号时使用他。 禁止数据库中存储大文件,例如照片.可以将大文件存储在对象存储系统中。数据库存储路径  一般不使用存储过程、视图、触发器,event.对数据库性能影响大，调试，排错，迁移都比较困难.拓展性差  对于互联网业务，能让站点层和服务层干的事,不要交">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-25T11:46:26.318Z">
+<meta property="og:updated_time" content="2018-10-25T11:54:36.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql数据库使用规范总结">
 <meta name="twitter:description" content="基本规范 表存储引擎设置为innodb 表字符集默认使用utf8,必要时使用utf8mb4。utf8mb4是utf8的超集,有存储4字节例如表情符号时使用他。 禁止数据库中存储大文件,例如照片.可以将大文件存储在对象存储系统中。数据库存储路径  一般不使用存储过程、视图、触发器,event.对数据库性能影响大，调试，排错，迁移都比较困难.拓展性差  对于互联网业务，能让站点层和服务层干的事,不要交">
@@ -330,19 +331,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/数据库规范/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库规范</span>
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
                   </a>
                 </span>
 
@@ -428,7 +418,9 @@
 <li>外键使得表之间相互耦合，影响update/delete性能.有可能造成死锁</li>
 </ul>
 </li>
-<li>建议将大字段,访问频率少的字段拆分到单独表中存储，分离冷热数据<h3 id="列设计规范"><a href="#列设计规范" class="headerlink" title="列设计规范"></a>列设计规范</h3></li>
+<li>建议将大字段,访问频率少的字段拆分到单独表中存储，分离冷热数据  </li>
+</ul>
+<h3 id="列设计规范"><a href="#列设计规范" class="headerlink" title="列设计规范"></a>列设计规范</h3><ul>
 <li>根据业务区分使用tinyint/int/bigint,分别占用1/4/8字节</li>
 <li><p>根据业务区分使用char/varchar</p>
 <ul>
@@ -465,7 +457,7 @@
 <li>insert必须指定字段,禁止使用insert into table values()</li>
 <li>尽量不对大表join和子查询</li>
 </ul>
-<h3 id="建表实例"><a href="#建表实例" class="headerlink" title="建表实例"></a>建表实例</h3><p><br><br>    CREATE TABLE <code>user</code> (<br>    <code>user_id</code> bigint(20) NOT NULL AUTO_INCREMENT COMMENT ‘会员信息表主键，自增长’,<br>    <code>uuid</code> bigint(20) DEFAULT ‘0’ COMMENT ‘会员唯一标识表主键，自增长’,<br>    <code>guid</code> bigint(20) DEFAULT ‘0’ COMMENT ‘用户中心全局ID’,<br>    <code>is_certed</code> tinyint(4) DEFAULT ‘2’ COMMENT ‘是否认证，1 认证 2  未认证’,<br>    <code>mobile</code> varchar(40) COLLATE utf8mb4_bin NOT NULL COMMENT ‘手机号码’,<br>    <code>last_login_tm</code> datetime(6) DEFAULT ‘0000-00-00 00:00:00.000000’ COMMENT ‘最后一次登录时间’,<br>    <code>last_login_device</code> varchar(20) COLLATE utf8mb4_bin DEFAULT NULL COMMENT ‘最后一次登录设备号’,<br>    <code>remark</code> varchar(250) COLLATE utf8mb4_bin DEFAULT ‘’ COMMENT ‘备注’,<br>    <code>is_deleted</code> tinyint(4) DEFAULT ‘1’ COMMENT ‘是否删除，1 未删除，2 已删除’,<br>    <code>created_tm</code> datetime(6) DEFAULT CURRENT_TIMESTAMP(6) COMMENT ‘创建时间，默认是 CURRENT_TIMESTAMP(6)’,<br>    <code>updated_tm</code> datetime(6) DEFAULT ‘0000-00-00 00:00:00.000000’ ON UPDATE CURRENT_TIMESTAMP(6) COMMENT ‘修改时间，修改时 CURRENT_TIMESTAMP(6)’,<br>    PRIMARY KEY (<code>user_id</code>)<br>    ) ENGINE=InnoDB AUTO_INCREMENT=241157 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT=’会员信息表’;<br><br></p>
+<h3 id="建表实例"><a href="#建表实例" class="headerlink" title="建表实例"></a>建表实例</h3><p><br><br><br>    CREATE TABLE <code>user</code> (<br>    <code>user_id</code> bigint(20) NOT NULL AUTO_INCREMENT COMMENT ‘会员信息表主键，自增长’,<br>    <code>uuid</code> bigint(20) DEFAULT ‘0’ COMMENT ‘会员唯一标识表主键，自增长’,<br>    <code>guid</code> bigint(20) DEFAULT ‘0’ COMMENT ‘用户中心全局ID’,<br>    <code>is_certed</code> tinyint(4) DEFAULT ‘2’ COMMENT ‘是否认证，1 认证 2  未认证’,<br>    <code>mobile</code> varchar(40) COLLATE utf8mb4_bin NOT NULL COMMENT ‘手机号码’,<br>    <code>last_login_tm</code> datetime(6) DEFAULT ‘0000-00-00 00:00:00.000000’ COMMENT ‘最后一次登录时间’,<br>    <code>last_login_device</code> varchar(20) COLLATE utf8mb4_bin DEFAULT NULL COMMENT ‘最后一次登录设备号’,<br>    <code>remark</code> varchar(250) COLLATE utf8mb4_bin DEFAULT ‘’ COMMENT ‘备注’,<br>    <code>is_deleted</code> tinyint(4) DEFAULT ‘1’ COMMENT ‘是否删除，1 未删除，2 已删除’,<br>    <code>created_tm</code> datetime(6) DEFAULT CURRENT_TIMESTAMP(6) COMMENT ‘创建时间，默认是 CURRENT_TIMESTAMP(6)’,<br>    <code>updated_tm</code> datetime(6) DEFAULT ‘0000-00-00 00:00:00.000000’ ON UPDATE CURRENT_TIMESTAMP(6) COMMENT ‘修改时间，修改时 CURRENT_TIMESTAMP(6)’,<br>    PRIMARY KEY (<code>user_id</code>)<br>    ) ENGINE=InnoDB AUTO_INCREMENT=241157 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT=’会员信息表’;<br><br><br></p>
       
     </div>
     
@@ -479,6 +471,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+            <a href="/tags/数据库规范/" rel="tag"># 数据库规范</a>
+          
+        </div>
       
 
       
@@ -607,7 +607,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

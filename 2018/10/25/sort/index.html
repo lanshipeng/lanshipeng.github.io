@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="golang 实现归并和堆排序1.归并排序         package main        import “fmt”        func main(){            a := make([]int,0,0)            r := make([]int,0,0)            a = []int{4,1,3,2,6,5,7}            r = []">
+<meta name="description" content="golang 实现归并和堆排序1.归并排序       package main    import “fmt”    func main(){        a := make([]int,0,0)        r := make([]int,0,0)        a = []int{4,1,3,2,6,5,7}        r = []int{0,0,0,0,0,0,0}">
 <meta name="keywords" content="堆排序,归并排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序">
 <meta property="og:url" content="http://yoursite.com/2018/10/25/sort/index.html">
 <meta property="og:site_name" content="Thinker&#39;s Notes">
-<meta property="og:description" content="golang 实现归并和堆排序1.归并排序         package main        import “fmt”        func main(){            a := make([]int,0,0)            r := make([]int,0,0)            a = []int{4,1,3,2,6,5,7}            r = []">
+<meta property="og:description" content="golang 实现归并和堆排序1.归并排序       package main    import “fmt”    func main(){        a := make([]int,0,0)        r := make([]int,0,0)        a = []int{4,1,3,2,6,5,7}        r = []int{0,0,0,0,0,0,0}">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-25T08:40:03.004Z">
+<meta property="og:updated_time" content="2018-10-25T11:57:21.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序">
-<meta name="twitter:description" content="golang 实现归并和堆排序1.归并排序         package main        import “fmt”        func main(){            a := make([]int,0,0)            r := make([]int,0,0)            a = []int{4,1,3,2,6,5,7}            r = []">
+<meta name="twitter:description" content="golang 实现归并和堆排序1.归并排序       package main    import “fmt”    func main(){        a := make([]int,0,0)        r := make([]int,0,0)        a = []int{4,1,3,2,6,5,7}        r = []int{0,0,0,0,0,0,0}">
 
 
 
@@ -331,8 +331,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -389,12 +389,12 @@
       
 
       
-        <h4 id="golang-实现归并和堆排序"><a href="#golang-实现归并和堆排序" class="headerlink" title="golang 实现归并和堆排序"></a>golang 实现归并和堆排序</h4><p>1.归并排序</p>
-<p><br><br>        package main<br><br>        import “fmt”<br><br>        func main(){<br>            a := make([]int,0,0)<br>            r := make([]int,0,0)<br>            a = []int{4,1,3,2,6,5,7}<br>            r = []int{0,0,0,0,0,0,0}<br>            mergesort(a,0,6,r)<br>            fmt.Println(a)<br>            fmt.Println(r)<br>        }<br>        func Swap(a <em>int,b </em>int){<br>            temp := <em>a
-            </em>a = <em>b
-            </em>b = temp<br>        }<br><br>        func mergesort(a []int,start,end int64,result []int){<br><br>            if end - start == 0{<br>                return<br>            }<br>            if end - start == 1{<br>                if a[start] &gt; a[end]{<br>                    Swap(&amp;a[start],&amp;a[end])<br>                }<br>            }else{<br>                mergesort(a,start,(end-start+1)/2 + start,result)<br>                mergesort(a,(end-start+1)/2 +1 + start,end,result)<br>                merge(a,start,end,result)<br>                var i int64 =0<br>                for i=start;i&lt;=end;i++{<br>                    a[i] = result[i]<br>                }<br>            }<br><br>        }<br><br><br>        func merge(a []int,start,end int64,result []int){<br><br>            left_index  := start<br>            left_length := (end-start+1)/2 +1<br>            right_index := start + left_length<br>            result_index := start<br><br>            for  left_index &lt; start + left_length &amp;&amp; right_index &lt; end+1 {<br><br>                if a[left_index] &lt;= a[right_index]{<br>                    result[result_index] = a[left_index]<br>                    result_index++<br>                    left_index++<br>                }else{<br>                    result[result_index] = a[right_index]<br>                    right_index++<br>                    result_index++<br>                }<br><br>            }<br>            for left_index &lt; start +left_length{<br>                result[result_index] = a[left_index]<br>                result_index++<br>                left_index++<br>            }<br>            for right_index &lt; end+1{<br>                result[result_index] = a[right_index]<br>                right_index++<br>                result_index++<br>            }<br><br>        }<br></p>
+        <h4 id="golang-实现归并和堆排序"><a href="#golang-实现归并和堆排序" class="headerlink" title="golang 实现归并和堆排序"></a>golang 实现归并和堆排序</h4><p>1.归并排序  </p>
+<p><br><br>    package main<br><br>    import “fmt”<br><br>    func main(){<br>        a := make([]int,0,0)<br>        r := make([]int,0,0)<br>        a = []int{4,1,3,2,6,5,7}<br>        r = []int{0,0,0,0,0,0,0}<br>        mergesort(a,0,6,r)<br>        fmt.Println(a)<br>        fmt.Println(r)<br>    }<br>    func Swap(a <em>int,b </em>int){<br>        temp := <em>a
+        </em>a = <em>b
+        </em>b = temp<br>    }<br><br>    func mergesort(a []int,start,end int64,result []int){<br><br>        if end - start == 0{<br>            return<br>        }<br>        if end - start == 1{<br>            if a[start] &gt; a[end]{<br>                Swap(&amp;a[start],&amp;a[end])<br>            }<br>        }else{<br>            mergesort(a,start,(end-start+1)/2 + start,result)<br>            mergesort(a,(end-start+1)/2 +1 + start,end,result)<br>            merge(a,start,end,result)<br>            var i int64 =0<br>            for i=start;i&lt;=end;i++{<br>                a[i] = result[i]<br>            }<br>        }<br><br>    }<br><br><br>    func merge(a []int,start,end int64,result []int){<br><br>        left_index  := start<br>        left_length := (end-start+1)/2 +1<br>        right_index := start + left_length<br>        result_index := start<br><br>        for  left_index &lt; start + left_length &amp;&amp; right_index &lt; end+1 {<br><br>            if a[left_index] &lt;= a[right_index]{<br>                result[result_index] = a[left_index]<br>                result_index++<br>                left_index++<br>            }else{<br>                result[result_index] = a[right_index]<br>                right_index++<br>                result_index++<br>            }<br><br>        }<br>        for left_index &lt; start +left_length{<br>            result[result_index] = a[left_index]<br>            result_index++<br>            left_index++<br>        }<br>        for right_index &lt; end+1{<br>            result[result_index] = a[right_index]<br>            right_index++<br>            result_index++<br>        }<br><br>    }<br></p>
 
-<p>2.堆排序</p>
+<p>2.堆排序  </p>
 <p><br><br>    package main<br><br>    import “fmt”<br><br>    func main(){<br>        a := make([]int,0,0)<br>        a = []int{1,4,2,3,7,9,8}<br>        heapsort(a)<br>        fmt.Println(a)<br>    }<br><br>    func swap(a <em>int,b </em>int){<br>        temp := <em>a
         </em>a = <em>b
         </em>b = temp<br>    }<br>    func heapsort(a []int){<br><br>        //创建大顶堆<br>        var i int = 0<br>        var j int = 0<br>        for i= len(a)/2;i&gt;=0;i–{<br>            heapadjust(a,i,len(a))<br>        }<br>        for j= len(a) -1 ;j&gt;=1;j–{<br>            swap(&amp;a[0],&amp;a[j])<br>            heapadjust(a,0,j)<br>        }<br><br>    }<br>    func heapadjust(a []int,i,length int){<br><br>        var left int = 2*i +1<br>        if left &lt; length{<br>            maxIndex := left<br>            right := left + 1<br>            if a[right] &gt; a[left] &amp;&amp; right &lt; length{<br>                maxIndex = right<br>            }<br>            if a[maxIndex] &gt; a[i]{<br>                swap(&amp;a[maxIndex],&amp;a[i])<br>                heapadjust(a,maxIndex,length)<br>            }<br>        }<br>    }<br><br></p>
@@ -429,7 +429,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/23/datastruct/" rel="next" title="单链表">
+              <a href="/2018/10/23/list/" rel="next" title="单链表">
                 <i class="fa fa-chevron-left"></i> 单链表
               </a>
             
@@ -551,7 +551,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
