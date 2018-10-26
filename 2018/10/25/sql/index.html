@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Thinker&#39;s Notes">
 <meta property="og:description" content="基本规范 表存储引擎设置为innodb 表字符集默认使用utf8,必要时使用utf8mb4。utf8mb4是utf8的超集,有存储4字节例如表情符号时使用他。 禁止数据库中存储大文件,例如照片.可以将大文件存储在对象存储系统中。数据库存储路径  一般不使用存储过程、视图、触发器,event.对数据库性能影响大，调试，排错，迁移都比较困难.拓展性差  对于互联网业务，能让站点层和服务层干的事,不要交">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-25T12:07:45.880Z">
+<meta property="og:updated_time" content="2018-10-26T02:12:42.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql数据库使用规范总结">
 <meta name="twitter:description" content="基本规范 表存储引擎设置为innodb 表字符集默认使用utf8,必要时使用utf8mb4。utf8mb4是utf8的超集,有存储4字节例如表情符号时使用他。 禁止数据库中存储大文件,例如照片.可以将大文件存储在对象存储系统中。数据库存储路径  一般不使用存储过程、视图、触发器,event.对数据库性能影响大，调试，排错，迁移都比较困难.拓展性差  对于互联网业务，能让站点层和服务层干的事,不要交">
@@ -409,25 +409,22 @@
 <li>单实例表个数控制在2000个以内</li>
 <li>单表分表个数控制在1024个以内</li>
 <li><p>表必须有主键，一般使用unsigned整数类型为主键  </p>
-<ul>
-<li>删除无主键的表,如果是row模式的主从架构。从库会挂住</li>
-</ul>
+</li>
+<li><p>删除无主键的表,如果是row模式的主从架构。从库会挂住</p>
 </li>
 <li><p>一般不使用外键,如果要保证完整性。应该由应用程式实现  </p>
-<ul>
-<li>外键使得表之间相互耦合，影响update/delete性能.有可能造成死锁</li>
-</ul>
+</li>
+<li><p>外键使得表之间相互耦合，影响update/delete性能.有可能造成死锁</p>
 </li>
 <li>建议将大字段,访问频率少的字段拆分到单独表中存储，分离冷热数据  </li>
 </ul>
 <h3 id="列设计规范"><a href="#列设计规范" class="headerlink" title="列设计规范"></a>列设计规范</h3><ul>
 <li>根据业务区分使用tinyint/int/bigint,分别占用1/4/8字节</li>
 <li><p>根据业务区分使用char/varchar</p>
-<ul>
-<li>字段长度固定,或者长度近似的业务场景,适用char,能减少碎片,查询性能高</li>
-<li>字段长度相差大，或者更新少的业务场景，适合使用varchar,可以减少空间</li>
-</ul>
 </li>
+<li><p>字段长度固定,或者长度近似的业务场景,适用char,能减少碎片,查询性能高</p>
+</li>
+<li>字段长度相差大，或者更新少的业务场景，适合使用varchar,可以减少空间</li>
 <li><p>根据业务区分使用datetime/timestamp(分别占5/4字节)</p>
 </li>
 <li><p>把not null字段设置为默认值.因为null的列使用索引统计,值都更加复杂。更难优化。只能使用is null 或者is not null 而在=/!=/in/not in有大坑</p>
@@ -441,9 +438,8 @@
 <li>唯一索引使用uniq_[字段名]来命名</li>
 <li>非唯一索引使用idx_[字段名]来命名</li>
 <li><p>单张表索引数量控制在5个以内</p>
-<ul>
-<li>太多索引影响写性能;生成执行计划时,如果索引太多,会降低性能.并可能导致mysql选择不到最优索引</li>
-</ul>
+</li>
+<li><p>太多索引影响写性能;生成执行计划时,如果索引太多,会降低性能.并可能导致mysql选择不到最优索引</p>
 </li>
 <li>组合索引字段数建议不超过5个</li>
 <li>不建议在频繁更新的字段上建立索引</li>
