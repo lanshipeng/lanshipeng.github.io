@@ -128,9 +128,9 @@
     <link href="http://yoursite.com/2018/09/29/first-blog/"/>
     <id>http://yoursite.com/2018/09/29/first-blog/</id>
     <published>2018-09-29T11:15:34.000Z</published>
-    <updated>2018-11-18T16:22:57.710Z</updated>
+    <updated>2018-11-23T06:53:13.808Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>welcome to my first blog, to be continued 。。。。。。</li></ul>]]></content>
+    <content type="html"><![CDATA[<ul><li>welcome to my first blog, to be continued 。。。。。。</li><li>hah</li></ul>]]></content>
     
     <summary type="html">
     
@@ -138,6 +138,7 @@
       
         &lt;ul&gt;
 &lt;li&gt;welcome to my first blog, to be continued 。。。。。。&lt;/li&gt;
+&lt;li&gt;hah&lt;/li&gt;
 &lt;/ul&gt;
 
       
