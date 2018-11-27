@@ -55,17 +55,6 @@
       </categories>
   </entry>
   <entry>
-    <title><![CDATA[docker usage]]></title>
-    <url>%2F2018%2F10%2F10%2Fdocker%2F</url>
-    <content type="text"><![CDATA[1.docker安装 下载rpm包 1rpm -ivh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm RHEL6/Centos6安装方法: 1234 yum install docker-io -y ``` - Centos7安装方法: yum install docker -y 12* 2.创建一个名为tomcat001的tomcat容器 - 开启容器 docker run –name tomcat001 -idt tomcat 12345678 - 进入容器 &lt;p&gt; docker exec -it tomcat(容器名) /bin/bash &lt;/p&gt;* 3.安装工具 apt-get update apt-get install sudo apt install net-tools # ifconfig apt install iputils-ping # ping … 1- 4.进入容器之后进行编辑ssh文件，如果没有ssh,需要先安装： 安装ssh-client命令：sudo apt-get install openssh-client 安装ssh-server命令：sudo apt-get install openssh-server 12- 5.配置ssh服务 编辑ssh配置文件： $sudo vim/etc/ssh/sshd_config PermitRootLogin without-password 改为 PermitRootLogin yes` PasswordAuthentication yes 改为 PasswordAuthentication no 1- 6.设置ssh密码 $passwd root`]]></content>
-      <categories>
-        <category>容器</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[my first blog]]></title>
     <url>%2F2018%2F09%2F29%2Ffirst-blog%2F</url>
     <content type="text"><![CDATA[welcome to my first blog, to be continued 。。。。。。 hah]]></content>
