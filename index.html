@@ -386,17 +386,17 @@
 （如果set的key已经存在，该命令可以更新该key所对应的原来的数据，也就是实现更新的作用。）
 
 
-    [key]: key-value 中的key 用于查找缓存值
+[key]: key-value 中的key 用于查找缓存值
 
-    [flags]: 包括简直对的整型参数，客户机使用它存储关于简直对的额外信息  
+[flags]: 包括简直对的整型参数，客户机使用它存储关于简直对的额外信息  
 
-    [exptime]: 在缓存中保存键值对的时间长度 （以s为单位）  
+[exptime]: 在缓存中保存键值对的时间长度 （以s为单位）  
 
-    [bytes]: 缓存中字节数
+[bytes]: 缓存中字节数
 
-    [noreply]: 告知服务器不需要返回数据
+[noreply]: 告知服务器不需要返回数据
 
-    [value]: 存储的值(始终位于第二行)
+[value]: 存储的值(始终位于第二行)
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">set runoob 0 900 9</span><br><span class="line">memcached</span><br><span class="line">STORED</span><br><span class="line"></span><br><span class="line">get runoob</span><br><span class="line">VALUE runoob 0 9</span><br><span class="line">memcached</span><br><span class="line"></span><br><span class="line">END</span><br></pre></td></tr></table></figure>
 
