@@ -380,31 +380,13 @@
         
           
             <h4 id="save-cmd"><a href="#save-cmd" class="headerlink" title="save cmd"></a>save cmd</h4><ol>
-<li>set key flags exptime bytes [noreply]<br>value  </li>
-</ol>
-<pre><code>说明：
-（如果set的key已经存在，该命令可以更新该key所对应的原来的数据，也就是实现更新的作用。）
-
-
-[key]: key-value 中的key 用于查找缓存值
-
-[flags]: 包括简直对的整型参数，客户机使用它存储关于简直对的额外信息  
-
-[exptime]: 在缓存中保存键值对的时间长度 （以s为单位）  
-
-[bytes]: 缓存中字节数
-
-[noreply]: 告知服务器不需要返回数据
-
-[value]: 存储的值(始终位于第二行)
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">set runoob 0 900 9</span><br><span class="line">memcached</span><br><span class="line">STORED</span><br><span class="line"></span><br><span class="line">get runoob</span><br><span class="line">VALUE runoob 0 9</span><br><span class="line">memcached</span><br><span class="line"></span><br><span class="line">END</span><br></pre></td></tr></table></figure>
-
-out info:
-
--- STORED：保存成功后输出。
--- ERROR：在保存失败后输出。
-</code></pre><ol start="2">
+<li><p>set key flags exptime bytes [noreply]<br>value  </p>
+<p> 说明：<br> （如果set的key已经存在，该命令可以更新该key所对应的原来的数据，也就是实现更新的作用。</p>
+<p> [key]: key-value 中的key 用于查找缓存值<br> [flags]: 包括简直对的整型参数，客户机使用它存储关于简直对的额外信息<br> [exptime]: 在缓存中保存键值对的时间长度 （以s为单位）<br> [bytes]: 缓存中字节数<br> [noreply]: 告知服务器不需要返回数据<br> [value]: 存储的值(始终位于第二行)  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">set runoob 0 900 9</span><br><span class="line">memcached</span><br><span class="line">STORED</span><br><span class="line">get runoob</span><br><span class="line">VALUE runoob 0 9</span><br><span class="line">memcached</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+<p> out info:</p>
+<p> – STORED：保存成功后输出。<br> – ERROR：在保存失败后输出。</p>
+</li>
 <li><p>add key flags exptime bytes [noreply]<br>value</p>
 <p> 说明：<br> （如果 add 的 key 已经存在，则不会更新数据(过期的 key 会更新)，之前的值将仍然保持相同，并且您将获得响应 NOT_STORED）</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">add new_key 0 900 10</span><br><span class="line">data_value</span><br><span class="line">STORED</span><br><span class="line">get new_key</span><br><span class="line">VALUE new_key 0 10</span><br><span class="line">data_value</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
