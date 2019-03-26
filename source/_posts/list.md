@@ -27,7 +27,9 @@ comments: true
              ptail.next = xNode
              ptail = xNode
         }
-        return phead
+        head = head.next
+        ptail.next = nil
+        return head
     }
     //删除节点
     func (this *ListNode)DeleteListNod(head* ListNode,val int){  
@@ -122,6 +124,7 @@ comments: true
                 p->next = node;
                 p = node;
             }
+            head = head->next;
             p->next = NULL;
             return head;
 

@@ -1,5 +1,5 @@
 ---
-title: first-blog
+title: my first blog
 categories: 
 - Hello
 ---
