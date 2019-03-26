@@ -42,11 +42,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>xargs</title>
     <link href="http://yoursite.com/2018/12/18/xargs/"/>
     <id>http://yoursite.com/2018/12/18/xargs/</id>
     <published>2018-12-18T08:13:34.935Z</published>
-    <updated>2018-12-18T08:19:22.854Z</updated>
+    <updated>2019-03-26T09:45:50.717Z</updated>
     
     <content type="html"><![CDATA[<h3 id="xargs"><a href="#xargs" class="headerlink" title="xargs"></a>xargs</h3><pre><code>命令可以通过管道接受字符串，并将接收到的字符串通过空格分割成许多参数(默认情况下是通过空格分割) 然后将参数传递给其后面的命令，作为后面命令的命令行参数</code></pre><h3 id="d"><a href="#d" class="headerlink" title="-d"></a>-d</h3><pre><code>xargs将其标准输入中的内容以空白(包括空格、Tab、回车换行等)分割成多个后当作命令行参数传给后面的命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;11@22@33&quot; |xargs -d &apos;@&apos; echo</span><br></pre></td></tr></table></figure></code></pre>]]></content>
     
@@ -59,6 +59,10 @@
     
     </summary>
     
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="xargs" scheme="http://yoursite.com/tags/xargs/"/>
     
   </entry>
   
@@ -86,11 +90,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>md转html</title>
     <link href="http://yoursite.com/2018/12/18/pandoc/"/>
     <id>http://yoursite.com/2018/12/18/pandoc/</id>
     <published>2018-12-18T02:43:16.991Z</published>
-    <updated>2019-02-21T03:22:52.450Z</updated>
+    <updated>2019-03-26T09:46:46.118Z</updated>
     
     <content type="html"><![CDATA[<h3 id="md-转html"><a href="#md-转html" class="headerlink" title="md 转html"></a>md 转html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandoc -s -S --toc -c github2.css a.md  -o a.html</span><br></pre></td></tr></table></figure><h3 id="math-tex-转html"><a href="#math-tex-转html" class="headerlink" title="math.tex 转html"></a>math.tex 转html</h3><p> math.tex文件<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">% Pandoc math demos</span><br><span class="line">$a^2 + b^2 = c^2$</span><br><span class="line">$v(t) = v_0 + \frac&#123;1&#125;&#123;2&#125;at^2$</span><br><span class="line">$\gamma = \frac&#123;1&#125;&#123;\sqrt&#123;1 - v^2/c^2&#125;&#125;$</span><br><span class="line">$\exists x \forall y (Rxy \equiv Ryx)$</span><br><span class="line">$p \wedge q \models p$</span><br><span class="line">$\Box\diamond p\equiv\diamond p$</span><br><span class="line">$\int_&#123;0&#125;^&#123;1&#125; x dx = \left[ \frac&#123;1&#125;&#123;2&#125;x^2 \right]_&#123;0&#125;^&#123;1&#125; = \frac&#123;1&#125;&#123;2&#125;$</span><br><span class="line">$e^x = \sum_&#123;n=0&#125;^\infty \frac&#123;x^n&#125;&#123;n!&#125; = \lim_&#123;n\rightarrow\infty&#125; (1+x/n)^n$</span><br></pre></td></tr></table></figure></p><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandoc math.tex -s --mathml  -o mathMathML.html</span><br></pre></td></tr></table></figure></code></pre><h3 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h3><ul><li>-s –standalone转换输出文档时会自动加上合适的header和footer(例如standalone HTML, LaTeX, RTF)</li><li>-S </li><li>–toc </li><li>–data-dir=DIRECTORY指定用户数据目录，设定之后会在该目录下搜索pandoc数据文件。如果没有指定该选项，则会使用默认的用户数据目录:$HOME/.pandoc可通过pandoc –version命令查看</li><li>-c URL, –css=URL链接到CSS样式表。该选项能够使用多次来引入多个文件，所指定的文件能够以指定的顺序依次引入</li><li>-mathml 参数强制 Pandoc 将 LaTeX 中的数学公式转换成 MathML</li></ul>]]></content>
     
@@ -103,6 +107,10 @@
     
     </summary>
     
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="pandoc" scheme="http://yoursite.com/tags/pandoc/"/>
     
   </entry>
   
@@ -131,11 +139,11 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>atomic原子操作</title>
     <link href="http://yoursite.com/2018/12/10/atomic/"/>
     <id>http://yoursite.com/2018/12/10/atomic/</id>
     <published>2018-12-10T06:33:02.604Z</published>
-    <updated>2018-12-11T07:42:28.891Z</updated>
+    <updated>2019-03-26T09:48:38.879Z</updated>
     
     <content type="html"><![CDATA[<h3 id="go的原子操作"><a href="#go的原子操作" class="headerlink" title="go的原子操作"></a>go的原子操作</h3><p>atomic 提供的原子操作能够确保任一时刻只有一个goroutine对变量进行操作，善用 atomic 能够避免程序中出现大量的锁操作。</p><ul><li><p>atomic常见操作有：</p><ul><li><p>增减<br>  第一个参数必须是指针类型的值，通过指针变量可以获取被操作数在内存中的地址，从而施加特殊的CPU指令，确保同一时间只有一个goroutine能够进行操作。</p><ul><li><p>func AddInt32(addr *int32, delta int32) (new int32)</p></li><li><p>func AddInt64(addr *int64, delta int64) (new int64)</p></li><li><p>func AddUint32(addr *uint32, delta uint32) (new uint32)</p></li><li><p>func AddUint64(addr *uint64, delta uint64) (new uint64)</p></li><li><p>func AddUintptr(addr *uintptr, delta uintptr) (new uintptr)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var m int64=0</span><br><span class="line">atomic.AddInt32(&amp;m,3)</span><br></pre></td></tr></table></figure></li></ul></li><li><p>载入  </p><p>  载入操作能够保证原子的读变量的值，当读取的时候，任何其他CPU操作都无法对该变量进行读写，其实现机制受到底层硬件的支持。</p><ul><li><p>func LoadInt32(addr *int32) (val int32)</p></li><li><p>func LoadInt64(addr *int64) (val int64)</p></li><li><p>func LoadPointer(addr *unsafe.Pointer) (val unsafe.Pointer)</p></li><li><p>func LoadUint32(addr *uint32) (val uint32)</p></li><li><p>func LoadUint64(addr *uint64) (val uint64)</p></li><li><p>func LoadUintptr(addr *uintptr) (val uintptr)</p></li></ul></li><li><p>交换  </p><p>  相对于CAS，明显此类操作更为暴力直接，并不管变量的旧值是否被改变，直接赋予新值然后返回背替换的值。</p><ul><li><p>unc SwapInt32(addr *int32, new int32) (old int32)</p></li><li><p>func SwapInt64(addr *int64, new int64) (old int64)</p></li><li><p>func SwapPointer(addr *unsafe.Pointer, new unsafe.Pointer) (old unsafe.Pointer)</p></li><li><p>func SwapUint32(addr *uint32, new uint32) (old uint32)</p></li><li><p>func SwapUint64(addr *uint64, new uint64) (old uint64)</p></li><li><p>func SwapUintptr(addr *uintptr, new uintptr) (old uintptr)</p></li></ul></li><li><p>比较并交换<br>  该操作在进行交换前首先确保变量的值未被更改，即仍然保持参数 old 所记录的值，满足此前提下才进行交换操作。CAS的做法类似操作数据库时常见的乐观锁机制。</p><p>  需要注意的是，当有大量的goroutine 对变量进行读写操作时，可能导致CAS操作无法成功，这时可以利用for循环多次尝试。</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var value int64</span><br><span class="line">func atomicAddOp(tmp int64) &#123;</span><br><span class="line">    for &#123;</span><br><span class="line">        oldValue := value</span><br><span class="line">        if atomic.CompareAndSwapInt64(&amp;value, oldValue, oldValue+tmp) &#123;</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li><p>func CompareAndSwapInt32(addr *int32, old, new int32) (swapped bool)</p></li><li><p>func CompareAndSwapInt64(addr *int64, old, new int64) (swapped bool)</p></li><li><p>func CompareAndSwapPointer(addr *unsafe.Pointer, old, new unsafe.Pointer) (swapped bool)</p></li><li><p>func CompareAndSwapUint32(addr *uint32, old, new uint32) (swapped bool)</p></li><li><p>func CompareAndSwapUint64(addr *uint64, old, new uint64) (swapped bool)</p></li><li><p>func CompareAndSwapUintptr(addr *uintptr, old, new uintptr) (swapped bool)</p></li></ul></li><li><p>存储<br>  此类操作确保了写变量的原子性，避免其他操作读到了修改变量过程中的脏数据。</p><ul><li><p>func StoreInt32(addr *int32, val int32)</p></li><li><p>func StoreInt64(addr *int64, val int64)</p></li><li><p>func StorePointer(addr *unsafe.Pointer, val unsafe.Pointer)</p></li><li><p>func StoreUint32(addr *uint32, val uint32)</p></li><li><p>func StoreUint64(addr *uint64, val uint64)</p></li><li><p>func StoreUintptr(addr *uintptr, val uintptr)</p></li></ul></li></ul></li></ul>]]></content>
     
@@ -148,6 +156,10 @@
     
     </summary>
     
+      <category term="go" scheme="http://yoursite.com/categories/go/"/>
+    
+    
+      <category term="atomic" scheme="http://yoursite.com/tags/atomic/"/>
     
   </entry>
   
@@ -289,9 +301,9 @@
     <link href="http://yoursite.com/2018/09/29/first-blog/"/>
     <id>http://yoursite.com/2018/09/29/first-blog/</id>
     <published>2018-09-29T11:15:34.000Z</published>
-    <updated>2018-12-25T08:10:00.127Z</updated>
+    <updated>2019-03-26T09:47:37.291Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>welcome to my first blog, to be continued 。。。。。。</li><li>hah</li></ul><p>func TestPublish(t *testing.T) {<br>    p := &amp;PublishReqData{}<br>    re := &amp;Record{}<br>    re.Key = “k1”<br>    re.Value = “v1”<br>    p.Records = append(p.Records, re)<br>    data, err := json.Marshal(p)<br>    if err != nil {<br>        fmt.Println(“err:”, err)<br>    }<br>    body := bytes.NewReader(data)<br>    url := “<a href="http://0PvKGhAqDvsK7zitmS8t:0PvKGhAqDvsK7zitmS8u@0.0.0.0:6206/topics/databus_test_topic?group=databus_test_group&quot;" target="_blank" rel="noopener">http://0PvKGhAqDvsK7zitmS8t:0PvKGhAqDvsK7zitmS8u@0.0.0.0:6206/topics/databus_test_topic?group=databus_test_group&quot;</a><br>    req, err := http.NewRequest(“POST”, url, body)<br>    if err != nil {<br>        fmt.Println(“err:”, err)<br>    }<br>    req.Header.Set(“Content-type”, “application/vnd.kafka.binary.v2+json”)</p><pre><code>client := http.Client{}resp, err := client.Do(req)if err != nil {    fmt.Println(&quot;err:&quot;, err)    return}defer resp.Body.Close()b, err := ioutil.ReadAll(resp.Body)if err != nil {    fmt.Println(&quot;err:&quot;, err)    return}fmt.Println(string(b))</code></pre><p>}<br><a href="https://mermaidjs.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG5BcHAtLT4-KyBBcHA6YWRkIHRhc2sgdG8gbWFwW2tleTptZXRob2QgdmFsdWU6ZnVuY3Rpb25dXG5BcHAtLT4-KyBOb3RpZnk6IHJlZ2lzdGVyIGNhbGxiYWNrIHVybFxuQXBwLS0-PisgQnJva2VyOiBwdWIgbWVzc2FnZSBieSBkYXRhYnVzW2h0dHAgcmVxXVxuTm90aWZ5LS0-PisgQnJva2VyOmdldCBtc2cgIHB1YiBieSBhcHBcbmxvb3AgZXZlcnkgbXNnXG5Ob3RpZnkgLS0-Pi0gQXBwOiBhc3luYyBjYWxsYmFjayB3aXRoIG1zZyBcbmVuZFxubG9vcCBjaGVjayBtZXRob2RcbkFwcC0-PisgQXBwOiBjaGVjayBtZXRob2QgaW4gbWFwXG5lbmRcblxuXG5cblxuXG5cbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19" target="_blank" rel="noopener">流程图源码</a></p>]]></content>
+    <content type="html"><![CDATA[<ul><li>welcome to my first blog, to be continued 。。。。。。</li></ul>]]></content>
     
     <summary type="html">
     
@@ -299,9 +311,8 @@
       
         &lt;ul&gt;
 &lt;li&gt;welcome to my first blog, to be continued 。。。。。。&lt;/li&gt;
-&lt;li&gt;hah&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;func TestPublish(t *testing.T) {&lt;br&gt;    p := &amp;amp;Publi
+
       
     
     </summary>

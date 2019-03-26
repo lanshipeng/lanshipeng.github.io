@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="atomic," />
 
 
 
@@ -82,15 +82,16 @@
 
 
 <meta name="description" content="go的原子操作atomic 提供的原子操作能够确保任一时刻只有一个goroutine对变量进行操作，善用 atomic 能够避免程序中出现大量的锁操作。  atomic常见操作有：  增减  第一个参数必须是指针类型的值，通过指针变量可以获取被操作数在内存中的地址，从而施加特殊的CPU指令，确保同一时间只有一个goroutine能够进行操作。  func AddInt32(addr *int32,">
+<meta name="keywords" content="atomic">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Thinker&#39;s Notes">
+<meta property="og:title" content="atomic原子操作">
 <meta property="og:url" content="http://yoursite.com/2018/12/10/atomic/index.html">
 <meta property="og:site_name" content="Thinker&#39;s Notes">
 <meta property="og:description" content="go的原子操作atomic 提供的原子操作能够确保任一时刻只有一个goroutine对变量进行操作，善用 atomic 能够避免程序中出现大量的锁操作。  atomic常见操作有：  增减  第一个参数必须是指针类型的值，通过指针变量可以获取被操作数在内存中的地址，从而施加特殊的CPU指令，确保同一时间只有一个goroutine能够进行操作。  func AddInt32(addr *int32,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-11T07:42:28.891Z">
+<meta property="og:updated_time" content="2019-03-26T09:48:38.879Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Thinker&#39;s Notes">
+<meta name="twitter:title" content="atomic原子操作">
 <meta name="twitter:description" content="go的原子操作atomic 提供的原子操作能够确保任一时刻只有一个goroutine对变量进行操作，善用 atomic 能够避免程序中出现大量的锁操作。  atomic常见操作有：  增减  第一个参数必须是指针类型的值，通过指针变量可以获取被操作数在内存中的地址，从而施加特殊的CPU指令，确保同一时间只有一个goroutine能够进行操作。  func AddInt32(addr *int32,">
 
 
@@ -127,7 +128,7 @@
 
 
 
-  <title> | Thinker's Notes</title>
+  <title>atomic原子操作 | Thinker's Notes</title>
   
 
 
@@ -295,7 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">atomic原子操作</h1>
         
 
         <div class="post-meta">
@@ -318,6 +319,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/go/" itemprop="url" rel="index">
+                    <span itemprop="name">go</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -335,7 +358,7 @@
 
           
           
-             <span id="/2018/12/10/atomic/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2018/12/10/atomic/" class="leancloud_visitors" data-flag-title="atomic原子操作">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -471,6 +494,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/atomic/" rel="tag"># atomic</a>
+          
+        </div>
+      
 
       
       
@@ -591,7 +620,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -602,7 +631,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1385,13 +1414,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = ''.length > 0
+      var isPost = 'atomic原子操作'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = ''
+        var title = 'atomic原子操作'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
