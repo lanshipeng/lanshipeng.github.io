@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="welcome to my first blog, to be continued 。。。。。。 hah">
+<meta name="description" content="welcome to my first blog, to be continued 。。。。。。 hah  func TestPublish(t *testing.T) {    p := &amp;amp;PublishReqData{}    re := &amp;amp;Record{}    re.Key = “k1”    re.Value = “v1”    p.Records = append(p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="my first blog">
 <meta property="og:url" content="http://yoursite.com/2018/09/29/first-blog/index.html">
 <meta property="og:site_name" content="Thinker&#39;s Notes">
-<meta property="og:description" content="welcome to my first blog, to be continued 。。。。。。 hah">
+<meta property="og:description" content="welcome to my first blog, to be continued 。。。。。。 hah  func TestPublish(t *testing.T) {    p := &amp;amp;PublishReqData{}    re := &amp;amp;Record{}    re.Key = “k1”    re.Value = “v1”    p.Records = append(p">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-23T06:53:13.808Z">
+<meta property="og:updated_time" content="2018-12-25T08:10:00.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="my first blog">
-<meta name="twitter:description" content="welcome to my first blog, to be continued 。。。。。。 hah">
+<meta name="twitter:description" content="welcome to my first blog, to be continued 。。。。。。 hah  func TestPublish(t *testing.T) {    p := &amp;amp;PublishReqData{}    re := &amp;amp;Record{}    re.Key = “k1”    re.Value = “v1”    p.Records = append(p">
 
 
 
@@ -392,6 +392,21 @@
 <li>welcome to my first blog, to be continued 。。。。。。</li>
 <li>hah</li>
 </ul>
+<p>func TestPublish(t *testing.T) {<br>    p := &amp;PublishReqData{}<br>    re := &amp;Record{}<br>    re.Key = “k1”<br>    re.Value = “v1”<br>    p.Records = append(p.Records, re)<br>    data, err := json.Marshal(p)<br>    if err != nil {<br>        fmt.Println(“err:”, err)<br>    }<br>    body := bytes.NewReader(data)<br>    url := “<a href="http://0PvKGhAqDvsK7zitmS8t:0PvKGhAqDvsK7zitmS8u@0.0.0.0:6206/topics/databus_test_topic?group=databus_test_group&quot;" target="_blank" rel="noopener">http://0PvKGhAqDvsK7zitmS8t:0PvKGhAqDvsK7zitmS8u@0.0.0.0:6206/topics/databus_test_topic?group=databus_test_group&quot;</a><br>    req, err := http.NewRequest(“POST”, url, body)<br>    if err != nil {<br>        fmt.Println(“err:”, err)<br>    }<br>    req.Header.Set(“Content-type”, “application/vnd.kafka.binary.v2+json”)</p>
+<pre><code>client := http.Client{}
+resp, err := client.Do(req)
+if err != nil {
+    fmt.Println(&quot;err:&quot;, err)
+    return
+}
+defer resp.Body.Close()
+b, err := ioutil.ReadAll(resp.Body)
+if err != nil {
+    fmt.Println(&quot;err:&quot;, err)
+    return
+}
+fmt.Println(string(b))
+</code></pre><p>}<br><a href="https://mermaidjs.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG5BcHAtLT4-KyBBcHA6YWRkIHRhc2sgdG8gbWFwW2tleTptZXRob2QgdmFsdWU6ZnVuY3Rpb25dXG5BcHAtLT4-KyBOb3RpZnk6IHJlZ2lzdGVyIGNhbGxiYWNrIHVybFxuQXBwLS0-PisgQnJva2VyOiBwdWIgbWVzc2FnZSBieSBkYXRhYnVzW2h0dHAgcmVxXVxuTm90aWZ5LS0-PisgQnJva2VyOmdldCBtc2cgIHB1YiBieSBhcHBcbmxvb3AgZXZlcnkgbXNnXG5Ob3RpZnkgLS0-Pi0gQXBwOiBhc3luYyBjYWxsYmFjayB3aXRoIG1zZyBcbmVuZFxubG9vcCBjaGVjayBtZXRob2RcbkFwcC0-PisgQXBwOiBjaGVjayBtZXRob2QgaW4gbWFwXG5lbmRcblxuXG5cblxuXG5cbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In19" target="_blank" rel="noopener">流程图源码</a></p>
 
       
     </div>
@@ -503,7 +518,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -514,7 +529,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -585,7 +600,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -754,8 +769,10 @@
 <!-- LOCAL: You can save these files to your site and update links -->
     
         
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+<!--       <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">  -->
+<!--        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>   -->
+        <link rel="stylesheet" href="https://lanshipeng.github.io/css/gitment.css">
+        <script src="https://lanshipeng.github.io/js/gitment.js"></script>
     
 <!-- END LOCAL -->
 

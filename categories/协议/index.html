@@ -279,6 +279,34 @@
 
       <h2 class="post-title">
         
+            <a class="post-title-link" href="/2018/12/18/curl/" itemprop="url">
+              
+                <span itemprop="name">curl参数</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-12-18T10:47:34+08:00"
+              content="2018-12-18" >
+          12-18
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
             <a class="post-title-link" href="/2018/10/25/http/" itemprop="url">
               
                 <span itemprop="name">http相关特性</span>
@@ -356,7 +384,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -367,7 +395,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -438,7 +466,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -603,8 +631,10 @@
 <!-- LOCAL: You can save these files to your site and update links -->
     
         
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+<!--       <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">  -->
+<!--        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>   -->
+        <link rel="stylesheet" href="https://lanshipeng.github.io/css/gitment.css">
+        <script src="https://lanshipeng.github.io/js/gitment.js"></script>
     
 <!-- END LOCAL -->
 
@@ -1129,7 +1159,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("http相关特性");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("curl参数");titles.push("http相关特性");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
