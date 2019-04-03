@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Thinker's Notes" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="use ‘godoc cmd/go/build’ for documentation on the go/build command  buildimport &amp;quot;go/build&amp;quot;  Overview Index  OverviewPackage build gathers information about Go packages. Go PathThe Go path is">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Thinker&#39;s Notes">
+<meta property="og:url" content="http://yoursite.com/1.html">
+<meta property="og:site_name" content="Thinker&#39;s Notes">
+<meta property="og:description" content="use ‘godoc cmd/go/build’ for documentation on the go/build command  buildimport &amp;quot;go/build&amp;quot;  Overview Index  OverviewPackage build gathers information about Go packages. Go PathThe Go path is">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-27T03:11:23.268Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Thinker&#39;s Notes">
+<meta name="twitter:description" content="use ‘godoc cmd/go/build’ for documentation on the go/build command  buildimport &amp;quot;go/build&amp;quot;  Overview Index  OverviewPackage build gathers information about Go packages. Go PathThe Go path is">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/1.html"/>
+
+
+
+
+
+  <title> | Thinker's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Thinker's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline"></h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p>use ‘godoc cmd/go/build’ for documentation on the go/build command </p>
+<h1 id="build"><a href="#build" class="headerlink" title="build"></a>build</h1><p><code>import &quot;go/build&quot;</code></p>
+<ul>
+<li><a href="#pkg-overview">Overview</a></li>
+<li><a href="#pkg-index">Index</a></li>
+</ul>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a><a name="pkg-overview">Overview</a></h2><p>Package build gathers information about Go packages.</p>
+<h3 id="Go-Path"><a href="#Go-Path" class="headerlink" title="Go Path"></a>Go Path</h3><p>The Go path is a list of directory trees containing Go source code.<br>It is consulted to resolve imports that cannot be found in the standard<br>Go tree. The default path is the value of the GOPATH environment<br>variable, interpreted as a path list appropriate to the operating system<br>(on Unix, the variable is a colon-separated string;<br>on Windows, a semicolon-separated string;<br>on Plan 9, a list).</p>
+<p>Each directory listed in the Go path must have a prescribed structure:</p>
+<p>The src/ directory holds source code. The path below ‘src’ determines<br>the import path or executable name.</p>
+<p>The pkg/ directory holds installed package objects.<br>As in the Go tree, each target operating system and<br>architecture pair has its own subdirectory of pkg<br>(pkg/GOOS_GOARCH).</p>
+<p>If DIR is a directory listed in the Go path, a package with<br>source in DIR/src/foo/bar can be imported as “foo/bar” and<br>has its compiled form installed to “DIR/pkg/GOOS_GOARCH/foo/bar.a”<br>(or, for gccgo, “DIR/pkg/gccgo/foo/libbar.a”).</p>
+<p>The bin/ directory holds compiled commands.<br>Each command is named for its source directory, but only<br>using the final element, not the entire path. That is, the<br>command with source in DIR/src/foo/quux is installed into<br>DIR/bin/quux, not DIR/bin/foo/quux. The foo/ is stripped<br>so that you can add DIR/bin to your PATH to get at the<br>installed commands.</p>
+<p>Here’s an example directory layout:</p>
+<pre><code>GOPATH=/home/user/gocode
+
+/home/user/gocode/
+    src/
+        foo/
+            bar/               (go code in package bar)
+                x.go
+            quux/              (go code in package main)
+                y.go
+    bin/
+        quux                   (installed command)
+    pkg/
+        linux_amd64/
+            foo/
+                bar.a          (installed package object)
+</code></pre><h3 id="Build-Constraints"><a href="#Build-Constraints" class="headerlink" title="Build Constraints"></a>Build Constraints</h3><p>A build constraint, also known as a build tag, is a line comment that begins</p>
+<pre><code>// +build
+</code></pre><p>that lists the conditions under which a file should be included in the package.<br>Constraints may appear in any kind of source file (not just Go), but<br>they must appear near the top of the file, preceded<br>only by blank lines and other line comments. These rules mean that in Go<br>files a build constraint must appear before the package clause.</p>
+<p>To distinguish build constraints from package documentation, a series of<br>build constraints must be followed by a blank line.</p>
+<p>A build constraint is evaluated as the OR of space-separated options;<br>each option evaluates as the AND of its comma-separated terms;<br>and each term is an alphanumeric word or, preceded by !, its negation.<br>That is, the build constraint:</p>
+<pre><code>// +build linux,386 darwin,!cgo
+</code></pre><p>corresponds to the boolean formula:</p>
+<pre><code>(linux AND 386) OR (darwin AND (NOT cgo))
+</code></pre><p>A file may have multiple build constraints. The overall constraint is the AND<br>of the individual constraints. That is, the build constraints:</p>
+<pre><code>// +build linux darwin
+// +build 386
+</code></pre><p>corresponds to the boolean formula:</p>
+<pre><code>(linux OR darwin) AND 386
+</code></pre><p>During a particular build, the following words are satisfied:</p>
+<pre><code>- the target operating system, as spelled by runtime.GOOS
+- the target architecture, as spelled by runtime.GOARCH
+- the compiler being used, either &quot;gc&quot; or &quot;gccgo&quot;
+- &quot;cgo&quot;, if ctxt.CgoEnabled is true
+- &quot;go1.1&quot;, from Go version 1.1 onward
+- &quot;go1.2&quot;, from Go version 1.2 onward
+- &quot;go1.3&quot;, from Go version 1.3 onward
+- &quot;go1.4&quot;, from Go version 1.4 onward
+- &quot;go1.5&quot;, from Go version 1.5 onward
+- &quot;go1.6&quot;, from Go version 1.6 onward
+- &quot;go1.7&quot;, from Go version 1.7 onward
+- &quot;go1.8&quot;, from Go version 1.8 onward
+- any additional words listed in ctxt.BuildTags
+</code></pre><p>If a file’s name, after stripping the extension and a possible _test suffix,<br>matches any of the following patterns:</p>
+<pre><code>*_GOOS
+*_GOARCH
+*_GOOS_GOARCH
+</code></pre><p>(example: source_windows_amd64.go) where GOOS and GOARCH represent<br>any known operating system and architecture values respectively, then<br>the file is considered to have an implicit build constraint requiring<br>those terms (in addition to any explicit constraints in the file).</p>
+<p>To keep a file from being considered for the build:</p>
+<pre><code>// +build ignore
+</code></pre><p>(any other unsatisfied word will work as well, but <code></code>ignore’’ is conventional.)</p>
+<p>To build a file only when using cgo, and only on Linux and OS X:</p>
+<pre><code>// +build linux,cgo darwin,cgo
+</code></pre><p>Such a file is usually paired with another file implementing the<br>default functionality for other systems, which in this case would<br>carry the constraint:</p>
+<pre><code>// +build !linux,!darwin !cgo
+</code></pre><p>Naming a file dns_windows.go will cause it to be included only when<br>building the package for Windows; similarly, math_386.s will be included<br>only when building the package for 32-bit x86.</p>
+<p>Using GOOS=android matches build tags and files as for GOOS=linux<br>in addition to android tags and files.</p>
+<h3 id="Binary-Only-Packages"><a href="#Binary-Only-Packages" class="headerlink" title="Binary-Only Packages"></a>Binary-Only Packages</h3><p>It is possible to distribute packages in binary form without including the<br>source code used for compiling the package. To do this, the package must<br>be distributed with a source file not excluded by build constraints and<br>containing a “//go:binary-only-package” comment.<br>Like a build constraint, this comment must appear near the top of the file,<br>preceded only by blank lines and other line comments and with a blank line<br>following the comment, to separate it from the package documentation.<br>Unlike build constraints, this comment is only recognized in non-test<br>Go source files.</p>
+<p>The minimal source code for a binary-only package is therefore:</p>
+<pre><code>//go:binary-only-package
+
+package mypkg
+</code></pre><p>The source code may include additional Go code. That code is never compiled<br>but will be processed by tools like godoc and might be useful as end-user<br>documentation.</p>
+<h2 id="Index"><a href="#Index" class="headerlink" title="Index"></a><a name="pkg-index">Index</a></h2><ul>
+<li><a href="#pkg-variables">Variables</a></li>
+<li><a href="#ArchChar">func ArchChar(goarch string) (string, error)</a></li>
+<li><a href="#IsLocalImport">func IsLocalImport(path string) bool</a></li>
+<li><a href="#Context">type Context</a><ul>
+<li><a href="#Context.Import">func (ctxt <em>Context) Import(path string, srcDir string, mode ImportMode) (</em>Package, error)</a></li>
+<li><a href="#Context.ImportDir">func (ctxt <em>Context) ImportDir(dir string, mode ImportMode) (</em>Package, error)</a></li>
+<li><a href="#Context.MatchFile">func (ctxt *Context) MatchFile(dir, name string) (match bool, err error)</a></li>
+<li><a href="#Context.SrcDirs">func (ctxt *Context) SrcDirs() []string</a></li>
+</ul>
+</li>
+<li><a href="#ImportMode">type ImportMode</a></li>
+<li><a href="#MultiplePackageError">type MultiplePackageError</a><ul>
+<li><a href="#MultiplePackageError.Error">func (e *MultiplePackageError) Error() string</a></li>
+</ul>
+</li>
+<li><a href="#NoGoError">type NoGoError</a><ul>
+<li><a href="#NoGoError.Error">func (e *NoGoError) Error() string</a></li>
+</ul>
+</li>
+<li><a href="#Package">type Package</a><ul>
+<li><a href="#Import">func Import(path, srcDir string, mode ImportMode) (*Package, error)</a></li>
+<li><a href="#ImportDir">func ImportDir(dir string, mode ImportMode) (*Package, error)</a></li>
+<li><a href="#Package.IsCommand">func (p *Package) IsCommand() bool</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="Package-files"><a href="#Package-files" class="headerlink" title="Package files"></a><a name="pkg-files">Package files</a></h4><p><a href="/src/go/build/build.go">build.go</a> <a href="/src/go/build/doc.go">doc.go</a> <a href="/src/go/build/read.go">read.go</a> <a href="/src/go/build/syslist.go">syslist.go</a> <a href="/src/go/build/zcgo.go">zcgo.go</a> </p>
+<h2 id="Variables"><a href="#Variables" class="headerlink" title="Variables"></a><a name="pkg-variables">Variables</a></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ToolDir = filepath.Join(runtime.GOROOT(), <span class="string">"pkg/tool/"</span>+runtime.GOOS+<span class="string">"_"</span>+runtime.GOARCH)</span><br></pre></td></tr></table></figure>
+<p>ToolDir is the directory containing build tools.</p>
+<h2 id="func-ArchChar"><a href="#func-ArchChar" class="headerlink" title="func ArchChar"></a><a name="ArchChar">func</a> <a href="/src/target/build.go?s=45435:45479#L1563">ArchChar</a></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ArchChar</span><span class="params">(goarch <span class="keyword">string</span>)</span> <span class="params">(<span class="keyword">string</span>, error)</span></span></span><br></pre></td></tr></table></figure>
+<p>ArchChar returns “?” and an error.<br>In earlier versions of Go, the returned string was used to derive<br>the compiler and linker tool names, the default object file suffix,<br>and the default linker output name. As of Go 1.5, those strings<br>no longer vary by architecture; they are compile, link, .o, and a.out, respectively.</p>
+<h2 id="func-IsLocalImport"><a href="#func-IsLocalImport" class="headerlink" title="func IsLocalImport"></a><a name="IsLocalImport">func</a> <a href="/src/target/build.go?s=44955:44991#L1553">IsLocalImport</a></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">IsLocalImport</span><span class="params">(path <span class="keyword">string</span>)</span> <span class="title">bool</span></span></span><br></pre></td></tr></table></figure>
+<p>IsLocalImport reports whether the import path is<br>a local import path, like “.”, “..”, “./foo”, or “../foo”.</p>
+<h2 id="type-Context"><a href="#type-Context" class="headerlink" title="type Context"></a><a name="Context">type</a> <a href="/src/target/build.go?s=450:3568#L30">Context</a></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Context <span class="keyword">struct</span> &#123;</span><br><span class="line">    GOARCH      <span class="keyword">string</span> <span class="comment">// target architecture</span></span><br><span class="line">    GOOS        <span class="keyword">string</span> <span class="comment">// target operating system</span></span><br><span class="line">    GOROOT      <span class="keyword">string</span> <span class="comment">// Go root</span></span><br><span class="line">    GOPATH      <span class="keyword">string</span> <span class="comment">// Go path</span></span><br><span class="line">    CgoEnabled  <span class="keyword">bool</span>   <span class="comment">// whether cgo can be used</span></span><br><span class="line">    UseAllFiles <span class="keyword">bool</span>   <span class="comment">// use files regardless of +build lines, file names</span></span><br><span class="line">    Compiler    <span class="keyword">string</span> <span class="comment">// compiler to assume when computing target paths</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// The build and release tags specify build constraints</span></span><br><span class="line">    <span class="comment">// that should be considered satisfied when processing +build lines.</span></span><br><span class="line">    <span class="comment">// Clients creating a new context may customize BuildTags, which</span></span><br><span class="line">    <span class="comment">// defaults to empty, but it is usually an error to customize ReleaseTags,</span></span><br><span class="line">    <span class="comment">// which defaults to the list of Go releases the current release is compatible with.</span></span><br><span class="line">    <span class="comment">// In addition to the BuildTags and ReleaseTags, build constraints</span></span><br><span class="line">    <span class="comment">// consider the values of GOARCH and GOOS as satisfied tags.</span></span><br><span class="line">    BuildTags   []<span class="keyword">string</span></span><br><span class="line">    ReleaseTags []<span class="keyword">string</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// The install suffix specifies a suffix to use in the name of the installation</span></span><br><span class="line">    <span class="comment">// directory. By default it is empty, but custom builds that need to keep</span></span><br><span class="line">    <span class="comment">// their outputs separate can set InstallSuffix to do so. For example, when</span></span><br><span class="line">    <span class="comment">// using the race detector, the go command uses InstallSuffix = "race", so</span></span><br><span class="line">    <span class="comment">// that on a Linux/386 system, packages are written to a directory named</span></span><br><span class="line">    <span class="comment">// "linux_386_race" instead of the usual "linux_386".</span></span><br><span class="line">    InstallSuffix <span class="keyword">string</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// JoinPath joins the sequence of path fragments into a single path.</span></span><br><span class="line">    <span class="comment">// If JoinPath is nil, Import uses filepath.Join.</span></span><br><span class="line">    JoinPath <span class="function"><span class="keyword">func</span><span class="params">(elem ...<span class="keyword">string</span>)</span> <span class="title">string</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    // <span class="title">SplitPathList</span> <span class="title">splits</span> <span class="title">the</span> <span class="title">path</span> <span class="title">list</span> <span class="title">into</span> <span class="title">a</span> <span class="title">slice</span> <span class="title">of</span> <span class="title">individual</span> <span class="title">paths</span>.</span></span><br><span class="line"><span class="function">    // <span class="title">If</span> <span class="title">SplitPathList</span> <span class="title">is</span> <span class="title">nil</span>, <span class="title">Import</span> <span class="title">uses</span> <span class="title">filepath</span>.<span class="title">SplitList</span>.</span></span><br><span class="line"><span class="function">    <span class="title">SplitPathList</span> <span class="title">func</span><span class="params">(list <span class="keyword">string</span>)</span> []<span class="title">string</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    // <span class="title">IsAbsPath</span> <span class="title">reports</span> <span class="title">whether</span> <span class="title">path</span> <span class="title">is</span> <span class="title">an</span> <span class="title">absolute</span> <span class="title">path</span>.</span></span><br><span class="line"><span class="function">    // <span class="title">If</span> <span class="title">IsAbsPath</span> <span class="title">is</span> <span class="title">nil</span>, <span class="title">Import</span> <span class="title">uses</span> <span class="title">filepath</span>.<span class="title">IsAbs</span>.</span></span><br><span class="line"><span class="function">    <span class="title">IsAbsPath</span> <span class="title">func</span><span class="params">(path <span class="keyword">string</span>)</span> <span class="title">bool</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    // <span class="title">IsDir</span> <span class="title">reports</span> <span class="title">whether</span> <span class="title">the</span> <span class="title">path</span> <span class="title">names</span> <span class="title">a</span> <span class="title">directory</span>.</span></span><br><span class="line"><span class="function">    // <span class="title">If</span> <span class="title">IsDir</span> <span class="title">is</span> <span class="title">nil</span>, <span class="title">Import</span> <span class="title">calls</span> <span class="title">os</span>.<span class="title">Stat</span> <span class="title">and</span> <span class="title">uses</span> <span class="title">the</span> <span class="title">result</span>'<span class="title">s</span> <span class="title">IsDir</span> <span class="title">method</span>.</span></span><br><span class="line"><span class="function">    <span class="title">IsDir</span> <span class="title">func</span><span class="params">(path <span class="keyword">string</span>)</span> <span class="title">bool</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    // <span class="title">HasSubdir</span> <span class="title">reports</span> <span class="title">whether</span> <span class="title">dir</span> <span class="title">is</span> <span class="title">lexically</span> <span class="title">a</span> <span class="title">subdirectory</span> <span class="title">of</span></span></span><br><span class="line"><span class="function">    // <span class="title">root</span>, <span class="title">perhaps</span> <span class="title">multiple</span> <span class="title">levels</span> <span class="title">below</span>. <span class="title">It</span> <span class="title">does</span> <span class="title">not</span> <span class="title">try</span> <span class="title">to</span> <span class="title">check</span></span></span><br><span class="line"><span class="function">    // <span class="title">whether</span> <span class="title">dir</span> <span class="title">exists</span>.</span></span><br><span class="line"><span class="function">    // <span class="title">If</span> <span class="title">so</span>, <span class="title">HasSubdir</span> <span class="title">sets</span> <span class="title">rel</span> <span class="title">to</span> <span class="title">a</span> <span class="title">slash</span>-<span class="title">separated</span> <span class="title">path</span> <span class="title">that</span></span></span><br><span class="line"><span class="function">    // <span class="title">can</span> <span class="title">be</span> <span class="title">joined</span> <span class="title">to</span> <span class="title">root</span> <span class="title">to</span> <span class="title">produce</span> <span class="title">a</span> <span class="title">path</span> <span class="title">equivalent</span> <span class="title">to</span> <span class="title">dir</span>.</span></span><br><span class="line"><span class="function">    // <span class="title">If</span> <span class="title">HasSubdir</span> <span class="title">is</span> <span class="title">nil</span>, <span class="title">Import</span> <span class="title">uses</span> <span class="title">an</span> <span class="title">implementation</span> <span class="title">built</span> <span class="title">on</span></span></span><br><span class="line"><span class="function">    // <span class="title">filepath</span>.<span class="title">EvalSymlinks</span>.</span></span><br><span class="line"><span class="function">    <span class="title">HasSubdir</span> <span class="title">func</span><span class="params">(root, dir <span class="keyword">string</span>)</span> <span class="params">(rel <span class="keyword">string</span>, ok <span class="keyword">bool</span>)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    // <span class="title">ReadDir</span> <span class="title">returns</span> <span class="title">a</span> <span class="title">slice</span> <span class="title">of</span> <span class="title">os</span>.<span class="title">FileInfo</span>, <span class="title">sorted</span> <span class="title">by</span> <span class="title">Name</span>,</span></span><br><span class="line"><span class="function">    // <span class="title">describing</span> <span class="title">the</span> <span class="title">content</span> <span class="title">of</span> <span class="title">the</span> <span class="title">named</span> <span class="title">directory</span>.</span></span><br><span class="line"><span class="function">    // <span class="title">If</span> <span class="title">ReadDir</span> <span class="title">is</span> <span class="title">nil</span>, <span class="title">Import</span> <span class="title">uses</span> <span class="title">ioutil</span>.<span class="title">ReadDir</span>.</span></span><br><span class="line"><span class="function">    <span class="title">ReadDir</span> <span class="title">func</span><span class="params">(dir <span class="keyword">string</span>)</span> <span class="params">([]os.FileInfo, error)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    // <span class="title">OpenFile</span> <span class="title">opens</span> <span class="title">a</span> <span class="title">file</span> <span class="params">(not a directory)</span> <span class="title">for</span> <span class="title">reading</span>.</span></span><br><span class="line"><span class="function">    // <span class="title">If</span> <span class="title">OpenFile</span> <span class="title">is</span> <span class="title">nil</span>, <span class="title">Import</span> <span class="title">uses</span> <span class="title">os</span>.<span class="title">Open</span>.</span></span><br><span class="line"><span class="function">    <span class="title">OpenFile</span> <span class="title">func</span><span class="params">(path <span class="keyword">string</span>)</span> <span class="params">(io.ReadCloser, error)</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>A Context specifies the supporting context for a build.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Default Context = defaultContext()</span><br></pre></td></tr></table></figure>
+<p>Default is the default Context for builds.<br>It uses the GOARCH, GOOS, GOROOT, and GOPATH environment variables<br>if set, or else the compiled code’s GOARCH, GOOS, and GOROOT.</p>
+<h3 id="func-Context-Import"><a href="#func-Context-Import" class="headerlink" title="func (*Context) Import"></a><a name="Context.Import">func</a> (*Context) <a href="/src/target/build.go?s=16697:16787#L486">Import</a></h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(ctxt *Context)</span> <span class="title">Import</span><span class="params">(path <span class="keyword">string</span>, srcDir <span class="keyword">string</span>, mode ImportMode)</span> <span class="params">(*Package, error)</span></span></span><br></pre></td></tr></table></figure>
+<p>Import returns details about the Go package named by the import path,<br>interpreting local import paths relative to the srcDir directory.<br>If the path is a local import path naming a package that can be imported<br>using a standard import path, the returned package will set p.ImportPath<br>to that path.</p>
+<p>In the directory containing the package, .go, .c, .h, and .s files are<br>considered part of the package except for:</p>
+<pre><code>- .go files in package documentation
+- files starting with _ or . (likely editor temporary files)
+- files with build constraints not satisfied by the context
+</code></pre><p>If an error occurs, Import returns a non-nil error and a non-nil<br>*Package containing partial information.</p>
+<h3 id="func-Context-ImportDir"><a href="#func-Context-ImportDir" class="headerlink" title="func (*Context) ImportDir"></a><a name="Context.ImportDir">func</a> (*Context) <a href="/src/target/build.go?s=14860:14937#L434">ImportDir</a></h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(ctxt *Context)</span> <span class="title">ImportDir</span><span class="params">(dir <span class="keyword">string</span>, mode ImportMode)</span> <span class="params">(*Package, error)</span></span></span><br></pre></td></tr></table></figure>
+<p>ImportDir is like Import but processes the Go package found in<br>the named directory.</p>
+<h3 id="func-Context-MatchFile"><a href="#func-Context-MatchFile" class="headerlink" title="func (*Context) MatchFile"></a><a name="Context.MatchFile">func</a> (*Context) <a href="/src/target/build.go?s=30989:31061#L1032">MatchFile</a></h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(ctxt *Context)</span> <span class="title">MatchFile</span><span class="params">(dir, name <span class="keyword">string</span>)</span> <span class="params">(match <span class="keyword">bool</span>, err error)</span></span></span><br></pre></td></tr></table></figure>
+<p>MatchFile reports whether the file with the given name in the given directory<br>matches the context and would be included in a Package created by ImportDir<br>of that directory.</p>
+<p>MatchFile considers the name of the file and may use ctxt.OpenFile to<br>read some or all of the file’s content.</p>
+<h3 id="func-Context-SrcDirs"><a href="#func-Context-SrcDirs" class="headerlink" title="func (*Context) SrcDirs"></a><a name="Context.SrcDirs">func</a> (*Context) <a href="/src/target/build.go?s=7522:7561#L238">SrcDirs</a></h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(ctxt *Context)</span> <span class="title">SrcDirs</span><span class="params">()</span> []<span class="title">string</span></span></span><br></pre></td></tr></table></figure>
+<p>SrcDirs returns a list of package source root directories.<br>It draws from the current Go root and Go path but omits directories<br>that do not exist.</p>
+<h2 id="type-ImportMode"><a href="#type-ImportMode" class="headerlink" title="type ImportMode"></a><a name="ImportMode">type</a> <a href="/src/target/build.go?s=9780:9800#L325">ImportMode</a></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ImportMode <span class="keyword">uint</span></span><br></pre></td></tr></table></figure>
+<p>An ImportMode controls the behavior of the Import method.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    <span class="comment">// If FindOnly is set, Import stops after locating the directory</span></span><br><span class="line">    <span class="comment">// that should contain the sources for a package. It does not</span></span><br><span class="line">    <span class="comment">// read any files in the directory.</span></span><br><span class="line">    FindOnly ImportMode = <span class="number">1</span> &lt;&lt; <span class="literal">iota</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// If AllowBinary is set, Import can be satisfied by a compiled</span></span><br><span class="line">    <span class="comment">// package object without corresponding sources.</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// Deprecated:</span></span><br><span class="line">    <span class="comment">// The supported way to create a compiled-only package is to</span></span><br><span class="line">    <span class="comment">// write source code containing a //go:binary-only-package comment at</span></span><br><span class="line">    <span class="comment">// the top of the file. Such a package will be recognized</span></span><br><span class="line">    <span class="comment">// regardless of this flag setting (because it has source code)</span></span><br><span class="line">    <span class="comment">// and will have BinaryOnly set to true in the returned Package.</span></span><br><span class="line">    AllowBinary</span><br><span class="line"></span><br><span class="line">    <span class="comment">// If ImportComment is set, parse import comments on package statements.</span></span><br><span class="line">    <span class="comment">// Import returns an error if it finds a comment it cannot understand</span></span><br><span class="line">    <span class="comment">// or finds conflicting comments in multiple source files.</span></span><br><span class="line">    <span class="comment">// See golang.org/s/go14customimport for more information.</span></span><br><span class="line">    ImportComment</span><br><span class="line"></span><br><span class="line">    <span class="comment">// By default, Import searches vendor directories</span></span><br><span class="line">    <span class="comment">// that apply in the given source directory before searching</span></span><br><span class="line">    <span class="comment">// the GOROOT and GOPATH roots.</span></span><br><span class="line">    <span class="comment">// If an Import finds and returns a package using a vendor</span></span><br><span class="line">    <span class="comment">// directory, the resulting ImportPath is the complete path</span></span><br><span class="line">    <span class="comment">// to the package, including the path elements leading up</span></span><br><span class="line">    <span class="comment">// to and including "vendor".</span></span><br><span class="line">    <span class="comment">// For example, if Import("y", "x/subdir", 0) finds</span></span><br><span class="line">    <span class="comment">// "x/vendor/y", the returned package's ImportPath is "x/vendor/y",</span></span><br><span class="line">    <span class="comment">// not plain "y".</span></span><br><span class="line">    <span class="comment">// See golang.org/s/go15vendor for more information.</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// Setting IgnoreVendor ignores vendor directories.</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// In contrast to the package's ImportPath,</span></span><br><span class="line">    <span class="comment">// the returned package's Imports, TestImports, and XTestImports</span></span><br><span class="line">    <span class="comment">// are always the exact import paths from the source files:</span></span><br><span class="line">    <span class="comment">// Import makes no attempt to resolve or check those paths.</span></span><br><span class="line">    IgnoreVendor</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="type-MultiplePackageError"><a href="#type-MultiplePackageError" class="headerlink" title="type MultiplePackageError"></a><a name="MultiplePackageError">type</a> <a href="/src/target/build.go?s=15413:15621#L451">MultiplePackageError</a></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> MultiplePackageError <span class="keyword">struct</span> &#123;</span><br><span class="line">    Dir      <span class="keyword">string</span>   <span class="comment">// directory containing files</span></span><br><span class="line">    Packages []<span class="keyword">string</span> <span class="comment">// package names found</span></span><br><span class="line">    Files    []<span class="keyword">string</span> <span class="comment">// corresponding files: Files[i] declares package Packages[i]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MultiplePackageError describes a directory containing<br>multiple buildable Go source files for multiple packages.</p>
+<h3 id="func-MultiplePackageError-Error"><a href="#func-MultiplePackageError-Error" class="headerlink" title="func (*MultiplePackageError) Error"></a><a name="MultiplePackageError.Error">func</a> (*MultiplePackageError) <a href="/src/target/build.go?s=15623:15668#L457">Error</a></h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(e *MultiplePackageError)</span> <span class="title">Error</span><span class="params">()</span> <span class="title">string</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="type-NoGoError"><a href="#type-NoGoError" class="headerlink" title="type NoGoError"></a><a name="NoGoError">type</a> <a href="/src/target/build.go?s=15165:15202#L441">NoGoError</a></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> NoGoError <span class="keyword">struct</span> &#123;</span><br><span class="line">    Dir <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>NoGoError is the error used by Import to describe a directory<br>containing no buildable Go source files. (It may still contain<br>test files, files hidden by build tags, and so on.)</p>
+<h3 id="func-NoGoError-Error"><a href="#func-NoGoError-Error" class="headerlink" title="func (*NoGoError) Error"></a><a name="NoGoError.Error">func</a> (*NoGoError) <a href="/src/target/build.go?s=15204:15238#L445">Error</a></h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(e *NoGoError)</span> <span class="title">Error</span><span class="params">()</span> <span class="title">string</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="type-Package"><a href="#type-Package" class="headerlink" title="type Package"></a><a name="Package">type</a> <a href="/src/target/build.go?s=11686:14547#L372">Package</a></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Package <span class="keyword">struct</span> &#123;</span><br><span class="line">    Dir           <span class="keyword">string</span>   <span class="comment">// directory containing package sources</span></span><br><span class="line">    Name          <span class="keyword">string</span>   <span class="comment">// package name</span></span><br><span class="line">    ImportComment <span class="keyword">string</span>   <span class="comment">// path in import comment on package statement</span></span><br><span class="line">    Doc           <span class="keyword">string</span>   <span class="comment">// documentation synopsis</span></span><br><span class="line">    ImportPath    <span class="keyword">string</span>   <span class="comment">// import path of package ("" if unknown)</span></span><br><span class="line">    Root          <span class="keyword">string</span>   <span class="comment">// root of Go tree where this package lives</span></span><br><span class="line">    SrcRoot       <span class="keyword">string</span>   <span class="comment">// package source root directory ("" if unknown)</span></span><br><span class="line">    PkgRoot       <span class="keyword">string</span>   <span class="comment">// package install root directory ("" if unknown)</span></span><br><span class="line">    PkgTargetRoot <span class="keyword">string</span>   <span class="comment">// architecture dependent install root directory ("" if unknown)</span></span><br><span class="line">    BinDir        <span class="keyword">string</span>   <span class="comment">// command install directory ("" if unknown)</span></span><br><span class="line">    Goroot        <span class="keyword">bool</span>     <span class="comment">// package found in Go root</span></span><br><span class="line">    PkgObj        <span class="keyword">string</span>   <span class="comment">// installed .a file</span></span><br><span class="line">    AllTags       []<span class="keyword">string</span> <span class="comment">// tags that can influence file selection in this directory</span></span><br><span class="line">    ConflictDir   <span class="keyword">string</span>   <span class="comment">// this directory shadows Dir in $GOPATH</span></span><br><span class="line">    BinaryOnly    <span class="keyword">bool</span>     <span class="comment">// cannot be rebuilt from source (has //go:binary-only-package comment)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Source files</span></span><br><span class="line">    GoFiles        []<span class="keyword">string</span> <span class="comment">// .go source files (excluding CgoFiles, TestGoFiles, XTestGoFiles)</span></span><br><span class="line">    CgoFiles       []<span class="keyword">string</span> <span class="comment">// .go source files that import "C"</span></span><br><span class="line">    IgnoredGoFiles []<span class="keyword">string</span> <span class="comment">// .go source files ignored for this build</span></span><br><span class="line">    InvalidGoFiles []<span class="keyword">string</span> <span class="comment">// .go source files with detected problems (parse error, wrong package name, and so on)</span></span><br><span class="line">    CFiles         []<span class="keyword">string</span> <span class="comment">// .c source files</span></span><br><span class="line">    CXXFiles       []<span class="keyword">string</span> <span class="comment">// .cc, .cpp and .cxx source files</span></span><br><span class="line">    MFiles         []<span class="keyword">string</span> <span class="comment">// .m (Objective-C) source files</span></span><br><span class="line">    HFiles         []<span class="keyword">string</span> <span class="comment">// .h, .hh, .hpp and .hxx source files</span></span><br><span class="line">    FFiles         []<span class="keyword">string</span> <span class="comment">// .f, .F, .for and .f90 Fortran source files</span></span><br><span class="line">    SFiles         []<span class="keyword">string</span> <span class="comment">// .s source files</span></span><br><span class="line">    SwigFiles      []<span class="keyword">string</span> <span class="comment">// .swig files</span></span><br><span class="line">    SwigCXXFiles   []<span class="keyword">string</span> <span class="comment">// .swigcxx files</span></span><br><span class="line">    SysoFiles      []<span class="keyword">string</span> <span class="comment">// .syso system object files to add to archive</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Cgo directives</span></span><br><span class="line">    CgoCFLAGS    []<span class="keyword">string</span> <span class="comment">// Cgo CFLAGS directives</span></span><br><span class="line">    CgoCPPFLAGS  []<span class="keyword">string</span> <span class="comment">// Cgo CPPFLAGS directives</span></span><br><span class="line">    CgoCXXFLAGS  []<span class="keyword">string</span> <span class="comment">// Cgo CXXFLAGS directives</span></span><br><span class="line">    CgoFFLAGS    []<span class="keyword">string</span> <span class="comment">// Cgo FFLAGS directives</span></span><br><span class="line">    CgoLDFLAGS   []<span class="keyword">string</span> <span class="comment">// Cgo LDFLAGS directives</span></span><br><span class="line">    CgoPkgConfig []<span class="keyword">string</span> <span class="comment">// Cgo pkg-config directives</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Dependency information</span></span><br><span class="line">    Imports   []<span class="keyword">string</span>                    <span class="comment">// import paths from GoFiles, CgoFiles</span></span><br><span class="line">    ImportPos <span class="keyword">map</span>[<span class="keyword">string</span>][]token.Position <span class="comment">// line information for Imports</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Test information</span></span><br><span class="line">    TestGoFiles    []<span class="keyword">string</span>                    <span class="comment">// _test.go files in package</span></span><br><span class="line">    TestImports    []<span class="keyword">string</span>                    <span class="comment">// import paths from TestGoFiles</span></span><br><span class="line">    TestImportPos  <span class="keyword">map</span>[<span class="keyword">string</span>][]token.Position <span class="comment">// line information for TestImports</span></span><br><span class="line">    XTestGoFiles   []<span class="keyword">string</span>                    <span class="comment">// _test.go files outside package</span></span><br><span class="line">    XTestImports   []<span class="keyword">string</span>                    <span class="comment">// import paths from XTestGoFiles</span></span><br><span class="line">    XTestImportPos <span class="keyword">map</span>[<span class="keyword">string</span>][]token.Position <span class="comment">// line information for XTestImports</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>A Package describes the Go package found in a directory.</p>
+<h3 id="func-Import"><a href="#func-Import" class="headerlink" title="func Import"></a><a name="Import">func</a> <a href="/src/target/build.go?s=33366:33433#L1117">Import</a></h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Import</span><span class="params">(path, srcDir <span class="keyword">string</span>, mode ImportMode)</span> <span class="params">(*Package, error)</span></span></span><br></pre></td></tr></table></figure>
+<p>Import is shorthand for Default.Import.</p>
+<h3 id="func-ImportDir"><a href="#func-ImportDir" class="headerlink" title="func ImportDir"></a><a name="ImportDir">func</a> <a href="/src/target/build.go?s=33531:33592#L1122">ImportDir</a></h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ImportDir</span><span class="params">(dir <span class="keyword">string</span>, mode ImportMode)</span> <span class="params">(*Package, error)</span></span></span><br></pre></td></tr></table></figure>
+<p>ImportDir is shorthand for Default.ImportDir.</p>
+<h3 id="func-Package-IsCommand"><a href="#func-Package-IsCommand" class="headerlink" title="func (*Package) IsCommand"></a><a name="Package.IsCommand">func</a> (*Package) <a href="/src/target/build.go?s=14705:14739#L428">IsCommand</a></h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *Package)</span> <span class="title">IsCommand</span><span class="params">()</span> <span class="title">bool</span></span></span><br></pre></td></tr></table></figure>
+<p>IsCommand reports whether the package is considered a<br>command to be installed (not just a library).<br>Packages named “main” are treated as commands.</p>
+<hr>
+<p>Generated by <a href="http://godoc.org/github.com/davecheney/godoc2md" target="_blank" rel="noopener">godoc2md</a></p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.png"
+                alt="lan_shipeng" />
+            
+              <p class="site-author-name" itemprop="name">lan_shipeng</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lanshipeng" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:geekexcalibur@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#build"><span class="nav-number">1.</span> <span class="nav-text">build</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">1.1.</span> <span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Go-Path"><span class="nav-number">1.1.1.</span> <span class="nav-text">Go Path</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Build-Constraints"><span class="nav-number">1.1.2.</span> <span class="nav-text">Build Constraints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Only-Packages"><span class="nav-number">1.1.3.</span> <span class="nav-text">Binary-Only Packages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Index"><span class="nav-number">1.2.</span> <span class="nav-text">Index</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Package-files"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">Package files</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variables"><span class="nav-number">1.3.</span> <span class="nav-text">Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#func-ArchChar"><span class="nav-number">1.4.</span> <span class="nav-text">func ArchChar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#func-IsLocalImport"><span class="nav-number">1.5.</span> <span class="nav-text">func IsLocalImport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type-Context"><span class="nav-number">1.6.</span> <span class="nav-text">type Context</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#func-Context-Import"><span class="nav-number">1.6.1.</span> <span class="nav-text">func (*Context) Import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#func-Context-ImportDir"><span class="nav-number">1.6.2.</span> <span class="nav-text">func (*Context) ImportDir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#func-Context-MatchFile"><span class="nav-number">1.6.3.</span> <span class="nav-text">func (*Context) MatchFile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#func-Context-SrcDirs"><span class="nav-number">1.6.4.</span> <span class="nav-text">func (*Context) SrcDirs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type-ImportMode"><span class="nav-number">1.7.</span> <span class="nav-text">type ImportMode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type-MultiplePackageError"><span class="nav-number">1.8.</span> <span class="nav-text">type MultiplePackageError</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#func-MultiplePackageError-Error"><span class="nav-number">1.8.1.</span> <span class="nav-text">func (*MultiplePackageError) Error</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type-NoGoError"><span class="nav-number">1.9.</span> <span class="nav-text">type NoGoError</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#func-NoGoError-Error"><span class="nav-number">1.9.1.</span> <span class="nav-text">func (*NoGoError) Error</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type-Package"><span class="nav-number">1.10.</span> <span class="nav-text">type Package</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#func-Import"><span class="nav-number">1.10.1.</span> <span class="nav-text">func Import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#func-ImportDir"><span class="nav-number">1.10.2.</span> <span class="nav-text">func ImportDir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#func-Package-IsCommand"><span class="nav-number">1.10.3.</span> <span class="nav-text">func (*Package) IsCommand</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lan_shipeng</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">  
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>   
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'lanshipeng',
+            repo: 'gitment-comments',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '4ff4b39269adfea578310d03373b96f5597f6ca5',
+            
+                client_id: '39f97671aad2c0ff66e8'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("jGf5SKD3THAUFJDHWcq7vuj3-gzGzoHsz", "5gtuGhlHtEeck3f9RhYuu77G");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  
+  <script>
+    (function () {
+
+      firebase.initializeApp({
+        apiKey: '',
+        projectId: ''
+      })
+
+      function getCount(doc, increaseCount) {
+        //increaseCount will be false when not in article page
+
+        return doc.get().then(function (d) {
+          var count
+          if (!d.exists) { //has no data, initialize count
+            if (increaseCount) {
+              doc.set({
+                count: 1
+              })
+              count = 1
+            }
+            else {
+              count = 0
+            }
+          }
+          else { //has data
+            count = d.data().count
+            if (increaseCount) {
+              if (!(window.localStorage && window.localStorage.getItem(title))) { //if first view this article
+                doc.set({ //increase count
+                  count: count + 1
+                })
+                count++
+              }
+            }
+          }
+          if (window.localStorage && increaseCount) { //mark as visited
+            localStorage.setItem(title, true)
+          }
+
+          return count
+        })
+      }
+
+      function appendCountTo(el) {
+        return function (count) {
+          $(el).append(
+            $('<span>').addClass('post-visitors-count').append(
+              $('<span>').addClass('post-meta-divider').text('|')
+            ).append(
+              $('<span>').addClass('post-meta-item-icon').append(
+                $('<i>').addClass('fa fa-users')
+              )
+              ).append($('<span>').text('阅读次数 ' + count))
+          )
+        }
+      }
+
+      var db = firebase.firestore()
+      var articles = db.collection('articles')
+
+      //https://hexo.io/zh-tw/docs/variables.html
+      var isPost = ''.length > 0
+      var isArchive = '' === 'true'
+      var isCategory = ''.length > 0
+      var isTag = ''.length > 0
+
+      if (isPost) { //is article page
+        var title = ''
+        var doc = articles.doc(title)
+
+        getCount(doc, true).then(appendCountTo($('.post-meta')))
+      }
+      else if (!isArchive && !isCategory && !isTag) { //is index page
+        var titles = [] //array to titles
+
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
+        eval(postsstr)
+
+        var promises = titles.map(function (title) {
+          return articles.doc(title)
+        }).map(function (doc) {
+          return getCount(doc)
+        })
+        Promise.all(promises).then(function (counts) {
+          var metas = $('.post-meta')
+          counts.forEach(function (val, idx) {
+            appendCountTo(metas[idx])(val)
+          })
+        })
+      }
+    })()
+  </script>
+
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

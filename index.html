@@ -464,11 +464,13 @@
 </li>
 <li>pull(kafka选择的模式)  <ul>
 <li>优势:<br>  而pull模式则可以根据consumer的消费能力以适当的速率消费消息。</li>
-<li>劣势:<br>  如果处理不好，实时性不足(kafka使用long polling)<br>  如果broker没有可供消费的消息，将导致consumer不断在循环中轮询，直到新消息到t达。为了避免这点，Kafka有个参数可以让consumer阻塞知道新消息到达(也可以阻塞知道消息的数量达到某个特定的量这样就可以批量发送）<h2 id="Semantic"><a href="#Semantic" class="headerlink" title="Semantic"></a>Semantic</h2></li>
+<li>劣势:<br>  如果处理不好，实时性不足(kafka使用long polling)<br>  如果broker没有可供消费的消息，将导致consumer不断在循环中轮询，直到新消息到t达。为了避免这点，Kafka有个参数可以让consumer阻塞知道新消息到达(也可以阻塞知道消息的数量达到某个特定的量这样就可以批量发送）  </li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<h2 id="Semantic"><a href="#Semantic" class="headerlink" title="Semantic"></a>Semantic</h2><ul>
 <li><p>topic &amp; partition<br>  一个队列只有一种topic,一种topic的消息可以根据key值分散到多条队列中。</p>
 <p>  topic在逻辑上可以被认为是一个在的queue，每条消费都必须指定它的topic，可以简单理解为必须指明把这条消息放进哪个queue里。为了使得Kafka的吞吐率可以水平扩展，物理上把topic分成一个或多个partition（为了加快消费速度），每个partition在物理上对应一个文件夹，该文件夹下存储这个partition的所有消息和索引文件</p>
 </li>
