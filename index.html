@@ -490,7 +490,7 @@
 <h2 id="delivery-guarantee："><a href="#delivery-guarantee：" class="headerlink" title="delivery guarantee："></a>delivery guarantee：</h2><ul>
 <li>At most once 消息可能会丢，但绝不会重复传输<br>读完消息先commit再处理，如果消息在commit后还没来得及处理就crash了，下次重新开始工作后无法读到刚刚提交但未处理的消息。</li>
 <li>At least one 消息绝不会丢，但可能会重复传输<br>先处理完再commit,如果消息在处理完但在commit之前crash了，下次重新开始工作后还会处理未commit的消息</li>
-<li>Exactly once 每条消息肯定会被传输一次且仅传输一次，很多时候这是用户所想要的</li>
+<li>Exactly once 每条消息肯定会被传输一次且仅传输一次，很多时候这是用户所想要的  </li>
 </ul>
 <p>代码地址：<a href="https://github.com/lanshipeng/kafka-example" target="_blank" rel="noopener">https://github.com/lanshipeng/kafka-example</a></p>
 
