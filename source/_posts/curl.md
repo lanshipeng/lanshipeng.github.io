@@ -6,6 +6,10 @@ tags:
 comments: true
 ---
 
+## curl常用参数  
+
+<!-- more --> 
+
 ## -o 输出到文件
 ```
 curl -o home.html  http://www.baidu.com

@@ -8,6 +8,9 @@ comments: true
 ---
 
 ### md 转html
+
+<!-- more -->  
+
 ```
 pandoc -s -S --toc -c github2.css a.md  -o a.html   
 ```

@@ -74,24 +74,24 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Thinker's Notes" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="echo.lan's Notes" type="application/atom+xml" />
 
 
 
 
 
 
-<meta name="description" content="cli of kafka start zookeeper   1zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties  start kafka   1kafka-server-start /usr/local/etc/kafka/server.properties  create topic   12cd /usr/loc">
+<meta name="description" content="cli of kafka">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kafka消息中间件">
 <meta property="og:url" content="http://yoursite.com/2018/12/19/kafka/index.html">
-<meta property="og:site_name" content="Thinker&#39;s Notes">
-<meta property="og:description" content="cli of kafka start zookeeper   1zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties  start kafka   1kafka-server-start /usr/local/etc/kafka/server.properties  create topic   12cd /usr/loc">
+<meta property="og:site_name" content="echo.lan&#39;s Notes">
+<meta property="og:description" content="cli of kafka">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-24T03:52:13.171Z">
+<meta property="og:updated_time" content="2019-05-15T07:00:49.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kafka消息中间件">
-<meta name="twitter:description" content="cli of kafka start zookeeper   1zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties  start kafka   1kafka-server-start /usr/local/etc/kafka/server.properties  create topic   12cd /usr/loc">
+<meta name="twitter:description" content="cli of kafka">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title>kafka消息中间件 | Thinker's Notes</title>
+  <title>kafka消息中间件 | echo.lan's Notes</title>
   
 
 
@@ -157,7 +157,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Thinker's Notes</span>
+        <span class="site-title">echo.lan's Notes</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -287,7 +287,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Thinker's Notes">
+      <meta itemprop="name" content="echo.lan's Notes">
     </span>
 
     
@@ -388,7 +388,8 @@
       
 
       
-        <h2 id="cli-of-kafka"><a href="#cli-of-kafka" class="headerlink" title="cli of kafka"></a>cli of kafka</h2><ul>
+        <h2 id="cli-of-kafka"><a href="#cli-of-kafka" class="headerlink" title="cli of kafka"></a>cli of kafka</h2><a id="more"></a>
+<ul>
 <li><p>start zookeeper</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties</span><br></pre></td></tr></table></figure>
 </li>
@@ -473,11 +474,13 @@
 </li>
 <li>pull(kafka选择的模式)  <ul>
 <li>优势:<br>  而pull模式则可以根据consumer的消费能力以适当的速率消费消息。</li>
-<li>劣势:<br>  如果处理不好，实时性不足(kafka使用long polling)<br>  如果broker没有可供消费的消息，将导致consumer不断在循环中轮询，直到新消息到t达。为了避免这点，Kafka有个参数可以让consumer阻塞知道新消息到达(也可以阻塞知道消息的数量达到某个特定的量这样就可以批量发送）<h2 id="Semantic"><a href="#Semantic" class="headerlink" title="Semantic"></a>Semantic</h2></li>
+<li>劣势:<br>  如果处理不好，实时性不足(kafka使用long polling)<br>  如果broker没有可供消费的消息，将导致consumer不断在循环中轮询，直到新消息到t达。为了避免这点，Kafka有个参数可以让consumer阻塞知道新消息到达(也可以阻塞知道消息的数量达到某个特定的量这样就可以批量发送）  </li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<h2 id="Semantic"><a href="#Semantic" class="headerlink" title="Semantic"></a>Semantic</h2><ul>
 <li><p>topic &amp; partition<br>  一个队列只有一种topic,一种topic的消息可以根据key值分散到多条队列中。</p>
 <p>  topic在逻辑上可以被认为是一个在的queue，每条消费都必须指定它的topic，可以简单理解为必须指明把这条消息放进哪个queue里。为了使得Kafka的吞吐率可以水平扩展，物理上把topic分成一个或多个partition（为了加快消费速度），每个partition在物理上对应一个文件夹，该文件夹下存储这个partition的所有消息和索引文件</p>
 </li>
@@ -497,8 +500,9 @@
 <h2 id="delivery-guarantee："><a href="#delivery-guarantee：" class="headerlink" title="delivery guarantee："></a>delivery guarantee：</h2><ul>
 <li>At most once 消息可能会丢，但绝不会重复传输<br>读完消息先commit再处理，如果消息在commit后还没来得及处理就crash了，下次重新开始工作后无法读到刚刚提交但未处理的消息。</li>
 <li>At least one 消息绝不会丢，但可能会重复传输<br>先处理完再commit,如果消息在处理完但在commit之前crash了，下次重新开始工作后还会处理未commit的消息</li>
-<li>Exactly once 每条消息肯定会被传输一次且仅传输一次，很多时候这是用户所想要的</li>
+<li>Exactly once 每条消息肯定会被传输一次且仅传输一次，很多时候这是用户所想要的  </li>
 </ul>
+<p>代码地址：<a href="https://github.com/lanshipeng/kafka-example" target="_blank" rel="noopener">https://github.com/lanshipeng/kafka-example</a></p>
 
       
     </div>
@@ -532,6 +536,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/15/gorutine/" rel="prev" title="gorutine和线程区别">
+                gorutine和线程区别 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -619,7 +627,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -641,7 +649,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -7,7 +7,10 @@ tags:
 - 数据库规范 
 comments: true
 ---
+
 ### 基本规范  
+
+<!-- more -->
 
 - 表存储引擎设置为innodb
 - 表字符集默认使用utf8,必要时使用utf8mb4。utf8mb4是utf8的超集,有存储4字节例如表情符号时使用他。

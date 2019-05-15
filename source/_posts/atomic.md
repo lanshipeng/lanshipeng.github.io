@@ -6,7 +6,10 @@ tags:
 - atomic
 comments: true
 ---
-### go的原子操作
+### go的原子操作  
+
+<!-- more -->  
+
 atomic 提供的原子操作能够确保任一时刻只有一个goroutine对变量进行操作，善用 atomic 能够避免程序中出现大量的锁操作。
 
 - atomic常见操作有：

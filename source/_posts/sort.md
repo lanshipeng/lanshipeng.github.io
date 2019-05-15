@@ -10,6 +10,8 @@ comments: true
 
 #### golang 实现归并和堆排序  
 
+<!-- more -->  
+
 1.归并排序  
 
 ```
@@ -53,7 +55,6 @@ comments: true
 
     }
 
-
     func merge(a []int,start,end int64,result []int){
 
         left_index  := start
@@ -84,7 +85,6 @@ comments: true
             right_index++
             result_index++
         }
-
     }
 ```
 
@@ -140,4 +140,3 @@ comments: true
         }
     }
 ```
-

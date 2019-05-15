@@ -7,7 +7,10 @@ comments: true
 ---
 
 
-## cli of kafka
+## cli of kafka 
+
+<!-- more -->
+
 - start zookeeper
     ```
     zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties 
@@ -122,8 +125,9 @@ kafka使用zookeeper来实现动态的集群扩展，不需要更改客户端（
             而pull模式则可以根据consumer的消费能力以适当的速率消费消息。
         - 劣势:  
             如果处理不好，实时性不足(kafka使用long polling)
-            如果broker没有可供消费的消息，将导致consumer不断在循环中轮询，直到新消息到t达。为了避免这点，Kafka有个参数可以让consumer阻塞知道新消息到达(也可以阻塞知道消息的数量达到某个特定的量这样就可以批量发送）
-## Semantic
+            如果broker没有可供消费的消息，将导致consumer不断在循环中轮询，直到新消息到t达。为了避免这点，Kafka有个参数可以让consumer阻塞知道新消息到达(也可以阻塞知道消息的数量达到某个特定的量这样就可以批量发送）  
+  
+## Semantic  
 
 - topic & partition
     一个队列只有一种topic,一种topic的消息可以根据key值分散到多条队列中。
@@ -151,6 +155,6 @@ kafka使用zookeeper来实现动态的集群扩展，不需要更改客户端（
   读完消息先commit再处理，如果消息在commit后还没来得及处理就crash了，下次重新开始工作后无法读到刚刚提交但未处理的消息。
 - At least one 消息绝不会丢，但可能会重复传输
   先处理完再commit,如果消息在处理完但在commit之前crash了，下次重新开始工作后还会处理未commit的消息
-- Exactly once 每条消息肯定会被传输一次且仅传输一次，很多时候这是用户所想要的
+- Exactly once 每条消息肯定会被传输一次且仅传输一次，很多时候这是用户所想要的  
 
-
+代码地址：https://github.com/lanshipeng/kafka-example

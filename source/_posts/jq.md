@@ -1,10 +1,16 @@
 ---
 title: jq
 categories: 
-- json文本处理
+- 工具
+tags:     
+- json文本处理 
+comments: true
 ---
 ### jq
     jq可以对json数据进行分片、过滤、映射和转换，和sed、awk、grep等命令一样，都可以让你轻松地把玩文本
+
+<!-- more -->  
+
 ### "."
     最简单的jq程序是表达式"."
     ```

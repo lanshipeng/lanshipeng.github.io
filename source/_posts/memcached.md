@@ -6,7 +6,10 @@ tags: memcached
 comments: true
 ---
 
-#### save cmd
+#### save cmd  
+
+<!-- more -->   
+
 1. set key flags exptime bytes [noreply]  
 value  
 

@@ -7,6 +7,8 @@ comments: true
 ---
 #### 单链表的创建、插入、删除 倒置
 
+<!-- more --> 
+
 - go
   
 ```
@@ -32,7 +34,7 @@ comments: true
         return head
     }
     //删除节点
-    func (this *ListNode)DeleteListNod(head* ListNode,val int){  
+    func (this *ListNode)DeleteListNode(head* ListNode,val int){  
         if head == nil{
             return nil
         }
@@ -94,8 +96,8 @@ comments: true
         p = head.next
         head.next=nil
         for p != nil{
-            temp = temp.next
-            temp.next = head
+            temp = p.next
+            p.next = head
             head = p
             p = temp
         }
