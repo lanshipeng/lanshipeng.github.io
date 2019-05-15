@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="jqjq可以对json数据进行分片、过滤、映射和转换，和sed、awk、grep等命令一样，都可以让你轻松地把玩文本 “.”最简单的jq程序是表达式&amp;quot;.&amp;quot; 1cat json.text|jq .  example 123456789101112131415161718&amp;#123;&amp;quot;name&amp;quot;: &amp;quot;tool&amp;quot;,&amp;quot;url&amp;quot">
+<meta name="description" content="title: jqcategories:   json文本处理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jq">
+<meta property="og:title" content="echo.lan&#39;s Notes">
 <meta property="og:url" content="http://yoursite.com/2018/12/18/jq/index.html">
 <meta property="og:site_name" content="echo.lan&#39;s Notes">
-<meta property="og:description" content="jqjq可以对json数据进行分片、过滤、映射和转换，和sed、awk、grep等命令一样，都可以让你轻松地把玩文本 “.”最简单的jq程序是表达式&amp;quot;.&amp;quot; 1cat json.text|jq .  example 123456789101112131415161718&amp;#123;&amp;quot;name&amp;quot;: &amp;quot;tool&amp;quot;,&amp;quot;url&amp;quot">
+<meta property="og:description" content="title: jqcategories:   json文本处理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-15T03:55:31.093Z">
+<meta property="og:updated_time" content="2019-05-15T06:49:23.203Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jq">
-<meta name="twitter:description" content="jqjq可以对json数据进行分片、过滤、映射和转换，和sed、awk、grep等命令一样，都可以让你轻松地把玩文本 “.”最简单的jq程序是表达式&amp;quot;.&amp;quot; 1cat json.text|jq .  example 123456789101112131415161718&amp;#123;&amp;quot;name&amp;quot;: &amp;quot;tool&amp;quot;,&amp;quot;url&amp;quot">
+<meta name="twitter:title" content="echo.lan&#39;s Notes">
+<meta name="twitter:description" content="title: jqcategories:   json文本处理">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title>jq | echo.lan's Notes</title>
+  <title> | echo.lan's Notes</title>
   
 
 
@@ -295,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">jq</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -318,28 +318,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/json文本处理/" itemprop="url" rel="index">
-                    <span itemprop="name">json文本处理</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -357,7 +335,7 @@
 
           
           
-             <span id="/2018/12/18/jq/" class="leancloud_visitors" data-flag-title="jq">
+             <span id="/2018/12/18/jq/" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -388,7 +366,13 @@
       
 
       
-        <a id="more"></a>
+        <hr>
+<p>title: jq<br>categories: </p>
+<ul>
+<li>json文本处理</li>
+</ul>
+<hr>
+<a id="more"></a>
 <h3 id="jq"><a href="#jq" class="headerlink" title="jq"></a>jq</h3><pre><code>jq可以对json数据进行分片、过滤、映射和转换，和sed、awk、grep等命令一样，都可以让你轻松地把玩文本
 </code></pre><h3 id="“-”"><a href="#“-”" class="headerlink" title="“.”"></a>“.”</h3><pre><code>最简单的jq程序是表达式&quot;.&quot;
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat json.text|jq .</span><br></pre></td></tr></table></figure>
@@ -1342,13 +1326,13 @@ echo:
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = 'jq'.length > 0
+      var isPost = ''.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = 'jq'
+        var title = ''
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))

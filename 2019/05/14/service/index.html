@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="title: 服务发现对比categories:   组件tags: 服务发现comments: true   cap原理Consistency(一致性)： 数据一致更新，所有数据变动都是同步的Availability(可用性)： 好的响应性能Partition tolerance(分区耐受性)： 可靠性">
+<meta name="description" content="title: 服务发现对比categories:   组件tags: 服务发现comments: true   cap原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="echo.lan&#39;s Notes">
 <meta property="og:url" content="http://yoursite.com/2019/05/14/service/index.html">
 <meta property="og:site_name" content="echo.lan&#39;s Notes">
-<meta property="og:description" content="title: 服务发现对比categories:   组件tags: 服务发现comments: true   cap原理Consistency(一致性)： 数据一致更新，所有数据变动都是同步的Availability(可用性)： 好的响应性能Partition tolerance(分区耐受性)： 可靠性">
+<meta property="og:description" content="title: 服务发现对比categories:   组件tags: 服务发现comments: true   cap原理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-15T06:38:40.493Z">
+<meta property="og:updated_time" content="2019-05-15T06:48:52.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="echo.lan&#39;s Notes">
-<meta name="twitter:description" content="title: 服务发现对比categories:   组件tags: 服务发现comments: true   cap原理Consistency(一致性)： 数据一致更新，所有数据变动都是同步的Availability(可用性)： 好的响应性能Partition tolerance(分区耐受性)： 可靠性">
+<meta name="twitter:description" content="title: 服务发现对比categories:   组件tags: 服务发现comments: true   cap原理">
 
 
 
@@ -373,8 +373,8 @@
 <li>服务发现<br>comments: true</li>
 </ul>
 <hr>
-<h3 id="cap原理"><a href="#cap原理" class="headerlink" title="cap原理"></a>cap原理</h3><p>Consistency(一致性)： 数据一致更新，所有数据变动都是同步的<br>Availability(可用性)： 好的响应性能<br>Partition tolerance(分区耐受性)： 可靠性</p>
-<a id="more"></a>
+<h3 id="cap原理"><a href="#cap原理" class="headerlink" title="cap原理"></a>cap原理</h3><a id="more"></a>
+<p>Consistency(一致性)： 数据一致更新，所有数据变动都是同步的<br>Availability(可用性)： 好的响应性能<br>Partition tolerance(分区耐受性)： 可靠性</p>
 <p>分区耐受性<br>保证数据可持久存储，在各种情况下都不会出现数据丢失的问题。为了实现数据的持久性，不但需要在写入的时候保证数据能够持久存储，还需要能够将数据备份一个或多个副本，存放在不同的物理设备上，防止某个存储设备发生故障时，数据不会丢失。</p>
 <p>数据一致性<br>在数据有多份副本的情况下，如果网络、服务器、软件出现了故障，会导致部分副本写入失败。这就造成了多个副本之间的数据不一致，数据内容冲突。</p>
 <p>数据可用性<br>多个副本分别存储于不同的物理设备的情况下，如果某个设备损坏，就需要从另一个数据存储设备上访问数据。如果这个过程不能很快完成，或者在完成的过程中需要停止终端用户访问数据，那么在切换存储设备的这段时间内，数据就是不可访问的。</p>
