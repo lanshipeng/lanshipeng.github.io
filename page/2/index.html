@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Thinker's Notes" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="echo.lan's Notes" type="application/atom+xml" />
 
 
 
@@ -82,12 +82,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Thinker&#39;s Notes">
+<meta property="og:title" content="echo.lan&#39;s Notes">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
-<meta property="og:site_name" content="Thinker&#39;s Notes">
+<meta property="og:site_name" content="echo.lan&#39;s Notes">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Thinker&#39;s Notes">
+<meta name="twitter:title" content="echo.lan&#39;s Notes">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <title>Thinker's Notes</title>
+  <title>echo.lan's Notes</title>
   
 
 
@@ -154,7 +154,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Thinker's Notes</span>
+        <span class="site-title">echo.lan's Notes</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -275,6 +275,320 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lan_shipeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="echo.lan's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/sort/" itemprop="url">排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T20:13:26+08:00">
+                2018-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/25/sort/" class="leancloud_visitors" data-flag-title="排序">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+          
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>  
+<h4 id="golang-实现归并和堆排序"><a href="#golang-实现归并和堆排序" class="headerlink" title="golang 实现归并和堆排序"></a>golang 实现归并和堆排序</h4><p>1.归并排序  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func main()&#123;</span><br><span class="line">    a := make([]int,0,0)</span><br><span class="line">    r := make([]int,0,0)</span><br><span class="line">    a = []int&#123;4,1,3,2,6,5,7&#125;</span><br><span class="line">    r = []int&#123;0,0,0,0,0,0,0&#125;</span><br><span class="line">    mergesort(a,0,6,r)</span><br><span class="line">    fmt.Println(a)</span><br><span class="line">    fmt.Println(r)</span><br><span class="line">&#125;</span><br><span class="line">func Swap(a *int,b *int)&#123;</span><br><span class="line">    temp := *a</span><br><span class="line">    *a = *b</span><br><span class="line">    *b = temp</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func mergesort(a []int,start,end int64,result []int)&#123;</span><br><span class="line"></span><br><span class="line">    if end - start == 0&#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    if end - start == 1&#123;</span><br><span class="line">        if a[start] &gt; a[end]&#123;</span><br><span class="line">            Swap(&amp;a[start],&amp;a[end])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        mergesort(a,start,(end-start+1)/2 + start,result)</span><br><span class="line">        mergesort(a,(end-start+1)/2 +1 + start,end,result)</span><br><span class="line">        merge(a,start,end,result)</span><br><span class="line">        var i int64 =0</span><br><span class="line">        for i=start;i&lt;=end;i++&#123;</span><br><span class="line">            a[i] = result[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func merge(a []int,start,end int64,result []int)&#123;</span><br><span class="line"></span><br><span class="line">    left_index  := start</span><br><span class="line">    left_length := (end-start+1)/2 +1</span><br><span class="line">    right_index := start + left_length</span><br><span class="line">    result_index := start</span><br><span class="line"></span><br><span class="line">    for  left_index &lt; start + left_length &amp;&amp; right_index &lt; end+1 &#123;</span><br><span class="line"></span><br><span class="line">        if a[left_index] &lt;= a[right_index]&#123;</span><br><span class="line">            result[result_index] = a[left_index]</span><br><span class="line">            result_index++</span><br><span class="line">            left_index++</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            result[result_index] = a[right_index]</span><br><span class="line">            right_index++</span><br><span class="line">            result_index++</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    for left_index &lt; start +left_length&#123;</span><br><span class="line">        result[result_index] = a[left_index]</span><br><span class="line">        result_index++</span><br><span class="line">        left_index++</span><br><span class="line">    &#125;</span><br><span class="line">    for right_index &lt; end+1&#123;</span><br><span class="line">        result[result_index] = a[right_index]</span><br><span class="line">        right_index++</span><br><span class="line">        result_index++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.堆排序  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func main()&#123;</span><br><span class="line">    a := make([]int,0,0)</span><br><span class="line">    a = []int&#123;1,4,2,3,7,9,8&#125;</span><br><span class="line">    heapsort(a)</span><br><span class="line">    fmt.Println(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func swap(a *int,b *int)&#123;</span><br><span class="line">    temp := *a</span><br><span class="line">    *a = *b</span><br><span class="line">    *b = temp</span><br><span class="line">&#125;</span><br><span class="line">func heapsort(a []int)&#123;</span><br><span class="line"></span><br><span class="line">    //创建大顶堆</span><br><span class="line">    var i int = 0</span><br><span class="line">    var j int = 0</span><br><span class="line">    for i= len(a)/2;i&gt;=0;i--&#123;</span><br><span class="line">        heapadjust(a,i,len(a))</span><br><span class="line">    &#125;</span><br><span class="line">    for j= len(a) -1 ;j&gt;=1;j--&#123;</span><br><span class="line">        swap(&amp;a[0],&amp;a[j])</span><br><span class="line">        heapadjust(a,0,j)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">func heapadjust(a []int,i,length int)&#123;</span><br><span class="line"></span><br><span class="line">    var left int = 2*i +1</span><br><span class="line">    if left &lt; length&#123;</span><br><span class="line">        maxIndex := left</span><br><span class="line">        right := left + 1</span><br><span class="line">        if a[right] &gt; a[left] &amp;&amp; right &lt; length&#123;</span><br><span class="line">            maxIndex = right</span><br><span class="line">        &#125;</span><br><span class="line">        if a[maxIndex] &gt; a[i]&#123;</span><br><span class="line">            swap(&amp;a[maxIndex],&amp;a[i])</span><br><span class="line">            heapadjust(a,maxIndex,length)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lan_shipeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="echo.lan's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/list/" itemprop="url">单链表</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T20:06:46+08:00">
+                2018-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/25/list/" class="leancloud_visitors" data-flag-title="单链表">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+          
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="单链表的创建、插入、删除-倒置"><a href="#单链表的创建、插入、删除-倒置" class="headerlink" title="单链表的创建、插入、删除 倒置"></a>单链表的创建、插入、删除 倒置</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/25/list/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/http/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -284,7 +598,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Thinker's Notes">
+      <meta itemprop="name" content="echo.lan's Notes">
     </span>
 
     
@@ -379,7 +693,8 @@
       
         
           
-            <h3 id="http通信的过程"><a href="#http通信的过程" class="headerlink" title="http通信的过程"></a>http通信的过程</h3><p>(1) 建立tcp链接<br>(2) web浏览器向web服务器发送请求命令<br>(3) web浏览器发送请求头消息<br>(4) web服务器应答<br>(5) web服务器发送应答头消息<br>(6) web服务器向浏览器发送数据<br>(7) web服务器关闭tcp链接  </p>
+            <a id="more"></a>
+<h3 id="http通信的过程"><a href="#http通信的过程" class="headerlink" title="http通信的过程"></a>http通信的过程</h3><p>(1) 建立tcp链接<br>(2) web浏览器向web服务器发送请求命令<br>(3) web浏览器发送请求头消息<br>(4) web服务器应答<br>(5) web服务器发送应答头消息<br>(6) web服务器向浏览器发送数据<br>(7) web服务器关闭tcp链接  </p>
 <h3 id="HTTP2-0和HTTP1-X相比的新特性"><a href="#HTTP2-0和HTTP1-X相比的新特性" class="headerlink" title="HTTP2.0和HTTP1.X相比的新特性"></a>HTTP2.0和HTTP1.X相比的新特性</h3><p>1.新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认0和1的组合。基于这种考虑HTTP2.0的协议解析决定采用二进制格式，实现方便且健壮。</p>
 <p>2.多路复用（MultiPlexing），即连接共享，即每一个request都是是用作连接共享机制的。一个request对应一个id，这样一个连接上可以有多个request，每个连接的request可以随机的混杂在一起，接收方可以根据request的 id将request再归属到各自不同的服务端请求里面。</p>
 <p>3.header压缩，如上文中所言，对前面提到过HTTP1.x的header带有大量信息，而且每次都要重复发送，HTTP2.0使用encoder来减少需要传输的header大小，通讯双方各自cache一份header fields表，既避免了重复header的传输，又减小了需要传输的大小。</p>
@@ -453,7 +768,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Thinker's Notes">
+      <meta itemprop="name" content="echo.lan's Notes">
     </span>
 
     
@@ -640,7 +955,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -662,7 +977,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1413,7 +1728,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("http相关特性");titles.push("my first blog");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("排序");titles.push("单链表");titles.push("http相关特性");titles.push("my first blog");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

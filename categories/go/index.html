@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Thinker's Notes" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="echo.lan's Notes" type="application/atom+xml" />
 
 
 
@@ -82,12 +82,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Thinker&#39;s Notes">
+<meta property="og:title" content="echo.lan&#39;s Notes">
 <meta property="og:url" content="http://yoursite.com/categories/go/index.html">
-<meta property="og:site_name" content="Thinker&#39;s Notes">
+<meta property="og:site_name" content="echo.lan&#39;s Notes">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Thinker&#39;s Notes">
+<meta name="twitter:title" content="echo.lan&#39;s Notes">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <title>分类: go | Thinker's Notes</title>
+  <title>分类: go | echo.lan's Notes</title>
   
 
 
@@ -153,7 +153,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Thinker's Notes</span>
+        <span class="site-title">echo.lan's Notes</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -279,6 +279,34 @@
 
       <h2 class="post-title">
         
+            <a class="post-title-link" href="/2019/04/15/gorutine/" itemprop="url">
+              
+                <span itemprop="name">gorutine和线程区别</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-04-15T10:45:57+08:00"
+              content="2019-04-15" >
+          04-15
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
             <a class="post-title-link" href="/2018/12/10/atomic/" itemprop="url">
               
                 <span itemprop="name">atomic原子操作</span>
@@ -356,7 +384,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -378,7 +406,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1129,7 +1157,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("atomic原子操作");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("gorutine和线程区别");titles.push("atomic原子操作");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
