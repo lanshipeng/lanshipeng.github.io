@@ -294,7 +294,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/14/service/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2019/05/14/service/" itemprop="url">服务发现对比</a></h1>
         
 
         <div class="post-meta">
@@ -317,6 +317,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/组件/" itemprop="url" rel="index">
+                    <span itemprop="name">组件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -324,7 +346,7 @@
 
           
           
-             <span id="/2019/05/14/service/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2019/05/14/service/" class="leancloud_visitors" data-flag-title="服务发现对比">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -356,14 +378,7 @@
 
       
         
-          <hr>
-<p>title: 服务发现对比<br>categories: </p>
-<ul>
-<li>组件<br>tags:</li>
-<li>服务发现<br>comments: true</li>
-</ul>
-<hr>
-<h3 id="cap原理"><a href="#cap原理" class="headerlink" title="cap原理"></a>cap原理</h3>
+          <h3 id="cap原理"><a href="#cap原理" class="headerlink" title="cap原理"></a>cap原理</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/05/14/service/#more" rel="contents">
@@ -683,124 +698,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h2 id="cli-of-kafka"><a href="#cli-of-kafka" class="headerlink" title="cli of kafka"></a>cli of kafka</h2><ul>
-<li><p>start zookeeper</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>start kafka</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kafka-server-start /usr/local/etc/kafka/server.properties</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>create topic</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/Cellar/kafka/2.1.0</span><br><span class="line">./bin/kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>show topics</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/Cellar/kafka/2.1.0</span><br><span class="line">./bin/kafka-topics --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>delete topic</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/Cellar/kafka/2.1.0</span><br><span class="line">./bin/kafka-run-class kafka.admin.DeleteTopicCommand --topic test --zookeeper127.0.0.1:2181</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>start producer</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/Cellar/kafka/2.1.0</span><br><span class="line">bin/kafka-console-producer --broker-list localhost:9092 --topic test</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>start consumer</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    cd /usr/local/Cellar/kafka/2.1.0</span><br><span class="line">    ./bin/kafka-console-consumer --bootstrap-server localhost:9092 --group cousunmer --topic test --from-beginning</span><br><span class="line">    ``` </span><br><span class="line">- stop kafka</span><br></pre></td></tr></table></figure>
-<p>  cd /usr/local/Cellar/kafka/2.1.0<br>   ./bin/kafka-server-stop</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 查看消费组</span><br><span class="line">    - 查看消费组列表</span><br></pre></td></tr></table></figure>
-<pre><code>./bin/kafka-consumer-groups --bootstrap-server localhost:9092 --list
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 查看某个消费组信息</span><br></pre></td></tr></table></figure>
-
-/bin/kafka-consumer-groups --bootstrap-server localhost:9092  --describe --group consumer03
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 查看topic</span><br><span class="line">    - 查看topic列表</span><br></pre></td></tr></table></figure>
-
-./bin/kafka-topics.sh --zookeeper localhost:2181 --list
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 查看指定topic信息</span><br></pre></td></tr></table></figure>
-
-./bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic Hello-Kafka
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 修改topic分区数</span><br></pre></td></tr></table></figure>
-
-./bin/kafka-topics.sh --zookeeper localhost：2181 --alter --topic Hello-Kafka --partitions 3
-```
-</code></pre></li>
-</ul>
-<h2 id="why-need-kafka"><a href="#why-need-kafka" class="headerlink" title="why need kafka?"></a>why need kafka?</h2><ul>
-<li>解藕消息的生产和消费</li>
-<li>缓冲</li>
-<li><p>并行</p>
-</li>
-<li><p>设计目标</p>
-<ul>
-<li>消息持久化：以时间复杂度为O(1)的方式提供消息持久化能力，即使对TB级以上的数据也能保证常数时间复杂度的访问性能。</li>
-<li>高吞吐：在廉价的商用机器上也能支持单机每秒10万条以上的吞吐量。</li>
-<li>分布式：支持消息分区以及分布式消费，并保证分区内的消息顺序。</li>
-<li>跨平台：支持不同语言平台的客户端。</li>
-<li>实时性：支持实时数据处理和离线数据处理。</li>
-<li>伸缩性：支持水平扩展（producer可以将数据发给多个broker上的多个partition,consumer也可以从多个broker上的不同partition读取数据）</li>
-</ul>
-</li>
-</ul>
-<h2 id="使用场景1"><a href="#使用场景1" class="headerlink" title="使用场景1:"></a>使用场景1:</h2><ul>
-<li>解藕 各个系统之间通过消息系统这个统一的接口交换数据，无须关心彼此的存在</li>
-<li>冗余 消息系统具有持久化的能力，规避消息处理前丢失的风险</li>
-<li>拓展 消息系统是统一的数据接口 各系统可独立扩展</li>
-<li>异步通信 在不需要立即处理请求的情况下 可以将请求放入消息系统 合适的时候再处理</li>
-<li>峰值处理能力 消息系统可以顶住峰值流量 业务系统可根据处理能力从消息系统获取并处理对应量的请求</li>
-<li>可恢复性 系统中部分组件失效不影响整个系统 恢复后仍可从消息系统获取并处理数据</li>
-</ul>
-<h2 id="常用消息系统对比"><a href="#常用消息系统对比" class="headerlink" title="常用消息系统对比"></a>常用消息系统对比</h2><ul>
-<li>RabbitMQ erlang编写 支持多协议AMQP，XMPP,SMTP,STOMP,支持负载均衡 数据持久化<br>  支持peer-2-peer和发布/订阅模式</li>
-<li>Redis 轻量级。就入队操作而言 redis对于短消息小于10kb的性能比rabbitmq好</li>
-<li>ZeroMQ 轻量级 不需要单独消息服务器或者中间件，应用程序扮演该角色，peer-2-peer本质是一个库</li>
-<li>ActiveMQ JMS实现 peer-to-peer 支持持久化 XA分布式事务</li>
-<li>kafka高性能跨语言的分布式发布/订阅消息系统 数据持久化 全分布式 同时支持在线和离线处理</li>
-<li>MetaQ/RocketMQ 纯java实现 发布/订阅消息系统 支持本地事务和分布式事务</li>
-</ul>
-<h2 id="zookeeper-amp-kafka"><a href="#zookeeper-amp-kafka" class="headerlink" title="zookeeper &amp; kafka"></a>zookeeper &amp; kafka</h2><p>kafka使用zookeeper来实现动态的集群扩展，不需要更改客户端（producer和consumer）的配置。broker会在zookeeper注册并保持相关的元数据（topic，partition信息等）更新。而客户端会在zookeeper上注册相关的watcher。一旦zookeeper发生变化，客户端能及时感知并作出相应调整。</p>
-<p>说明：Producer端使用zookeeper用来”发现”broker列表,以及和Topic下每个partition的leader建立socket连接并发送消息。也就是说每个Topic的partition是由Lead角色的Broker端使用zookeeper来注册broker信息,以及监测partition leader存活性.Consumer端使用zookeeper用来注册consumer信息,其中包括consumer消费的partition列表等,同时也用来发现broker列表,并和partition leader建立socket连接,并获取消息.</p>
-<h2 id="消息传递pull-amp-push"><a href="#消息传递pull-amp-push" class="headerlink" title="消息传递pull &amp; push"></a>消息传递pull &amp; push</h2><ul>
-<li><p>Producer和consumer采用的是push-and-pull模式<br>  Producer只管向broker push消息，consumer只管从broker pull消息，两者对消息的生产和消费是异步的   </p>
-</li>
-<li><p>question: customer应该从brokes拉取消息还是brokers将消息推送到consumer，也就是pull还push?</p>
-<ul>
-<li>push   <ul>
-<li>优势：<br>  延时低  </li>
-<li>劣势：<br>  push模式很难适应消费速率不同的消费者，因为消息发送速率是由broker决定的。当broker推送速率远高于消费者消费速率，consumer可能崩溃。push模式的目标是尽可能以最快速度传递消息，但是这样很容易造成consumer来不及处理消息，典型的表现就是拒绝服务以及网络拥塞。</li>
-</ul>
-</li>
-<li>pull(kafka选择的模式)  <ul>
-<li>优势:<br>  而pull模式则可以根据consumer的消费能力以适当的速率消费消息。</li>
-<li>劣势:<br>  如果处理不好，实时性不足(kafka使用long polling)<br>  如果broker没有可供消费的消息，将导致consumer不断在循环中轮询，直到新消息到t达。为了避免这点，Kafka有个参数可以让consumer阻塞知道新消息到达(也可以阻塞知道消息的数量达到某个特定的量这样就可以批量发送）  </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Semantic"><a href="#Semantic" class="headerlink" title="Semantic"></a>Semantic</h2><ul>
-<li><p>topic &amp; partition<br>  一个队列只有一种topic,一种topic的消息可以根据key值分散到多条队列中。</p>
-<p>  topic在逻辑上可以被认为是一个在的queue，每条消费都必须指定它的topic，可以简单理解为必须指明把这条消息放进哪个queue里。为了使得Kafka的吞吐率可以水平扩展，物理上把topic分成一个或多个partition（为了加快消费速度），每个partition在物理上对应一个文件夹，该文件夹下存储这个partition的所有消息和索引文件</p>
-</li>
-<li><p>broker<br>  消息中间件处理结点，一个Kafka节点就是一个broker，多个broker可以组成一个Kafka集群。</p>
-</li>
-<li><p>offset<br>  每个partition都由一系列有序的、不可变的消息组成，这些消息被连续的追加到partition中。partition中的每个消息都有一个连续的序列号叫做offset,用于partition唯一标识一条消息</p>
-</li>
-<li><p>kafka 支持多个consumer group 消费一条消息。但是如果一个consumer group 下有多个consumer，那么只能有一个consumer消费该条消息。这种机制可实现消息的单播和广播（可通过启动多个consumer验证）。</p>
-</li>
-</ul>
-<h2 id="publish-amp-subscribe"><a href="#publish-amp-subscribe" class="headerlink" title="publish &amp; subscribe"></a>publish &amp; subscribe</h2><ul>
-<li><p>生产者(producer)生产消息(数据流), 将消息发送到到kafka指定的主题队列(topic)中，也可以发送到topic中的指定分区(partition)中，消费者(consumer)从kafka的指定队列中获取消息，然后来处理消息</p>
-</li>
-<li><p>相同的消费者组中不能有比分区更多的消费者，否则多出的消费者一直处于空等待，不会收到消息</p>
-</li>
-</ul>
-<h2 id="delivery-guarantee："><a href="#delivery-guarantee：" class="headerlink" title="delivery guarantee："></a>delivery guarantee：</h2><ul>
-<li>At most once 消息可能会丢，但绝不会重复传输<br>读完消息先commit再处理，如果消息在commit后还没来得及处理就crash了，下次重新开始工作后无法读到刚刚提交但未处理的消息。</li>
-<li>At least one 消息绝不会丢，但可能会重复传输<br>先处理完再commit,如果消息在处理完但在commit之前crash了，下次重新开始工作后还会处理未commit的消息</li>
-<li>Exactly once 每条消息肯定会被传输一次且仅传输一次，很多时候这是用户所想要的  </li>
-</ul>
-<p>代码地址：<a href="https://github.com/lanshipeng/kafka-example" target="_blank" rel="noopener">https://github.com/lanshipeng/kafka-example</a></p>
-
-          
+          <h2 id="cli-of-kafka"><a href="#cli-of-kafka" class="headerlink" title="cli of kafka"></a>cli of kafka</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/19/kafka/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1337,7 +1242,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/18/jq/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/12/18/jq/" itemprop="url">jq</a></h1>
         
 
         <div class="post-meta">
@@ -1360,6 +1265,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1367,7 +1294,7 @@
 
           
           
-             <span id="/2018/12/18/jq/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2018/12/18/jq/" class="leancloud_visitors" data-flag-title="jq">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1399,12 +1326,8 @@
 
       
         
-          <hr>
-<p>title: jq<br>categories: </p>
-<ul>
-<li>json文本处理</li>
-</ul>
-<hr>
+          <h3 id="jq"><a href="#jq" class="headerlink" title="jq"></a>jq</h3><pre><code>jq可以对json数据进行分片、过滤、映射和转换，和sed、awk、grep等命令一样，都可以让你轻松地把玩文本
+</code></pre>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/12/18/jq/#more" rel="contents">
@@ -1981,7 +1904,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1992,7 +1915,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2743,7 +2666,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("");titles.push("gorutine和线程区别");titles.push("kafka消息中间件");titles.push("xargs");titles.push("curl参数");titles.push("md转html");titles.push("");titles.push("atomic原子操作");titles.push("memcached's note");titles.push("mysql数据库使用规范总结");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("服务发现对比");titles.push("gorutine和线程区别");titles.push("kafka消息中间件");titles.push("xargs");titles.push("curl参数");titles.push("md转html");titles.push("jq");titles.push("atomic原子操作");titles.push("memcached's note");titles.push("mysql数据库使用规范总结");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

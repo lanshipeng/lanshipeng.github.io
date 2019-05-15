@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="服务发现," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="title: 服务发现对比categories:   组件tags: 服务发现comments: true   cap原理">
+<meta name="description" content="cap原理">
+<meta name="keywords" content="服务发现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="echo.lan&#39;s Notes">
+<meta property="og:title" content="服务发现对比">
 <meta property="og:url" content="http://yoursite.com/2019/05/14/service/index.html">
 <meta property="og:site_name" content="echo.lan&#39;s Notes">
-<meta property="og:description" content="title: 服务发现对比categories:   组件tags: 服务发现comments: true   cap原理">
+<meta property="og:description" content="cap原理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-15T06:48:52.325Z">
+<meta property="og:updated_time" content="2019-05-15T06:58:33.534Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="echo.lan&#39;s Notes">
-<meta name="twitter:description" content="title: 服务发现对比categories:   组件tags: 服务发现comments: true   cap原理">
+<meta name="twitter:title" content="服务发现对比">
+<meta name="twitter:description" content="cap原理">
 
 
 
@@ -127,7 +128,7 @@
 
 
 
-  <title> | echo.lan's Notes</title>
+  <title>服务发现对比 | echo.lan's Notes</title>
   
 
 
@@ -295,7 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">服务发现对比</h1>
         
 
         <div class="post-meta">
@@ -318,6 +319,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/组件/" itemprop="url" rel="index">
+                    <span itemprop="name">组件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -335,7 +358,7 @@
 
           
           
-             <span id="/2019/05/14/service/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2019/05/14/service/" class="leancloud_visitors" data-flag-title="服务发现对比">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -366,14 +389,7 @@
       
 
       
-        <hr>
-<p>title: 服务发现对比<br>categories: </p>
-<ul>
-<li>组件<br>tags:</li>
-<li>服务发现<br>comments: true</li>
-</ul>
-<hr>
-<h3 id="cap原理"><a href="#cap原理" class="headerlink" title="cap原理"></a>cap原理</h3><a id="more"></a>
+        <h3 id="cap原理"><a href="#cap原理" class="headerlink" title="cap原理"></a>cap原理</h3><a id="more"></a>
 <p>Consistency(一致性)： 数据一致更新，所有数据变动都是同步的<br>Availability(可用性)： 好的响应性能<br>Partition tolerance(分区耐受性)： 可靠性</p>
 <p>分区耐受性<br>保证数据可持久存储，在各种情况下都不会出现数据丢失的问题。为了实现数据的持久性，不但需要在写入的时候保证数据能够持久存储，还需要能够将数据备份一个或多个副本，存放在不同的物理设备上，防止某个存储设备发生故障时，数据不会丢失。</p>
 <p>数据一致性<br>在数据有多份副本的情况下，如果网络、服务器、软件出现了故障，会导致部分副本写入失败。这就造成了多个副本之间的数据不一致，数据内容冲突。</p>
@@ -468,6 +484,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/服务发现/" rel="tag"># 服务发现</a>
+          
+        </div>
       
 
       
@@ -585,7 +607,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -596,7 +618,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1377,13 +1399,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = ''.length > 0
+      var isPost = '服务发现对比'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = ''
+        var title = '服务发现对比'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
