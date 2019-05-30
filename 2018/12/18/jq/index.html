@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="echo.lan&#39;s Notes">
 <meta property="og:description" content="jqjq可以对json数据进行分片、过滤、映射和转换，和sed、awk、grep等命令一样，都可以让你轻松地把玩文本">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-15T07:00:07.782Z">
+<meta property="og:updated_time" content="2019-05-30T10:33:47.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jq">
 <meta name="twitter:description" content="jqjq可以对json数据进行分片、过滤、映射和转换，和sed、awk、grep等命令一样，都可以让你轻松地把玩文本">
@@ -379,34 +379,37 @@
       
 
       
-        <h3 id="jq"><a href="#jq" class="headerlink" title="jq"></a>jq</h3><pre><code>jq可以对json数据进行分片、过滤、映射和转换，和sed、awk、grep等命令一样，都可以让你轻松地把玩文本
-</code></pre><a id="more"></a>  
-<h3 id="“-”"><a href="#“-”" class="headerlink" title="“.”"></a>“.”</h3><pre><code>最简单的jq程序是表达式&quot;.&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat json.text|jq .</span><br></pre></td></tr></table></figure>
-
-example
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;name&quot;: &quot;tool&quot;,</span><br><span class="line">&quot;url&quot;: &quot;http://tool.china.com&quot;,</span><br><span class="line">&quot;addr&quot;: &#123;</span><br><span class="line">    &quot;city&quot;: &quot;beijing&quot;,</span><br><span class="line">    &quot;country&quot;: &quot;china&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;array&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">    &quot;comp&quot;: &quot;google&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;http://www.google.com&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">    &quot;comp&quot;: &quot;baidu&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;http://www.baidu.com&quot;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre><h3 id="index"><a href="#index" class="headerlink" title="index"></a>index</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat json.text|jq &apos;.[0]&apos;</span><br></pre></td></tr></table></figure>
-</code></pre><h3 id="管道"><a href="#管道" class="headerlink" title="管道 |"></a>管道 |</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat json.txt | jq &apos;.[0] | &#123;name:.name,city:.addr.city&#125;&apos;</span><br></pre></td></tr></table></figure>
-
-echo:
-
-{
-    &quot;name&quot;:&quot;jjj&quot;,
-    &quot;city&quot;:&quot;bj&quot;
+        <h3 id="jq"><a href="#jq" class="headerlink" title="jq"></a>jq</h3><p>jq可以对json数据进行分片、过滤、映射和转换，和sed、awk、grep等命令一样，都可以让你轻松地把玩文本</p>
+<a id="more"></a>  
+<h3 id=""><a href="#" class="headerlink" title="."></a>.</h3><p>最简单的jq程序是表达式”.”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    cat json.text|jq .  </span><br><span class="line">```   </span><br><span class="line">example</span><br></pre></td></tr></table></figure></p>
+<pre><code>{
+&quot;name&quot;: &quot;tool&quot;,
+&quot;url&quot;: &quot;http://tool.china.com&quot;,
+&quot;addr&quot;: {
+    &quot;city&quot;: &quot;beijing&quot;,
+    &quot;country&quot;: &quot;china&quot;
+},
+&quot;array&quot;: [
+    {
+    &quot;comp&quot;: &quot;google&quot;,
+    &quot;url&quot;: &quot;http://www.google.com&quot;
+    },
+    {
+    &quot;comp&quot;: &quot;baidu&quot;,
+    &quot;url&quot;: &quot;http://www.baidu.com&quot;
+    }
+]
 }
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">### index</span><br></pre></td></tr></table></figure>
+<pre><code>cat json.text|jq &apos;.[0]&apos;
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">### 管道 |</span><br></pre></td></tr></table></figure>
+<pre><code>cat json.txt | jq &apos;.[0] | {name:.name,city:.addr.city}&apos;
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo:</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;name&quot;:&quot;jjj&quot;,</span><br><span class="line">    &quot;city&quot;:&quot;bj&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>cat json.txt | jq &apos;.[0] | {name:.array[0].comp,city:.addr.city}&apos;
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">echo:</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    &quot;name&quot;:&quot;google&quot;,</span><br><span class="line">    &quot;city&quot;:&quot;bj&quot;</span><br><span class="line">&#125;</span><br><span class="line">### [] 把jq的输出当作一个数组</span><br><span class="line"></span><br><span class="line">### &#123;&#125; 自定义key</span><br></pre></td></tr></table></figure>
+<pre><code>cat json.txt | jq &apos;.[0] | {username:.array[0].comp,livecity:.addr.city}&apos;
+</code></pre><p><code>`</code></p>
 
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat json.txt | jq &apos;.[0] | &#123;name:.array[0].comp,city:.addr.city&#125;&apos;</span><br></pre></td></tr></table></figure>
-
-echo:
-
-{
-    &quot;name&quot;:&quot;google&quot;,
-    &quot;city&quot;:&quot;bj&quot;
-}
-</code></pre><h3 id="把jq的输出当作一个数组"><a href="#把jq的输出当作一个数组" class="headerlink" title="[] 把jq的输出当作一个数组"></a>[] 把jq的输出当作一个数组</h3><h3 id="自定义key"><a href="#自定义key" class="headerlink" title="{} 自定义key"></a>{} 自定义key</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat json.txt | jq &apos;.[0] | &#123;username:.array[0].comp,livecity:.addr.city&#125;&apos;</span><br></pre></td></tr></table></figure>
-</code></pre>
       
     </div>
     
@@ -631,7 +634,7 @@ echo:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jq"><span class="nav-number">1.</span> <span class="nav-text">jq</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“-”"><span class="nav-number">2.</span> <span class="nav-text">“.”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index"><span class="nav-number">3.</span> <span class="nav-text">index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">4.</span> <span class="nav-text">管道 |</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把jq的输出当作一个数组"><span class="nav-number">5.</span> <span class="nav-text">[] 把jq的输出当作一个数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义key"><span class="nav-number">6.</span> <span class="nav-text">{} 自定义key</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jq"><span class="nav-number">1.</span> <span class="nav-text">jq</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text">.</span></a></li></ol></div>
             
 
           </div>
