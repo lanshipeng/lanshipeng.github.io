@@ -42,8 +42,8 @@ comments: true
 - start consumer
     ```
     cd /usr/local/Cellar/kafka/2.1.0
-    ./bin/kafka-console-consumer --bootstrap-server localhost:9092 --group cousunmer --topic test --from-beginning
-    ``` 
+    ./bin/kafka-console-consumer --bootstrap-server localhost:9092 --group cousunmer --topic test --from-beginning  
+    ```      
 - stop kafka
     ```
     cd /usr/local/Cellar/kafka/2.1.0 
