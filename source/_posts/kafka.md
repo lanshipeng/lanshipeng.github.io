@@ -12,65 +12,64 @@ comments: true
 <!-- more -->
 
 - start zookeeper
-    ```
+```
     zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties 
-    ```
+```
 - start kafka
-    ```
+```
     kafka-server-start /usr/local/etc/kafka/server.properties 
-    ```
+```
 - create topic
-    ```
+```
     cd /usr/local/Cellar/kafka/2.1.0
     ./bin/kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
-    ```
+```
 - show topics
-    ```
+```
     cd /usr/local/Cellar/kafka/2.1.0
     ./bin/kafka-topics --list --zookeeper localhost:2181
-    ```
+```
 - delete topic
-    ```
+```
     cd /usr/local/Cellar/kafka/2.1.0
     ./bin/kafka-run-class kafka.admin.DeleteTopicCommand --topic test --zookeeper127.0.0.1:2181
-    ```
+```
 - start producer
-    ```
+```
     cd /usr/local/Cellar/kafka/2.1.0
     bin/kafka-console-producer --broker-list localhost:9092 --topic test
-    ```
+```
 - start consumer
-    ```
+```
     cd /usr/local/Cellar/kafka/2.1.0
     ./bin/kafka-console-consumer --bootstrap-server localhost:9092 --group cousunmer --topic test --from-beginning  
-    ```        
+```        
 - stop kafka
-    ```
+```
     cd /usr/local/Cellar/kafka/2.1.0 
      ./bin/kafka-server-stop
-    ```
-- 查看消费组
-    - 查看消费组列表
-        ```
-        ./bin/kafka-consumer-groups --bootstrap-server localhost:9092 --list
-        ```
-    - 查看某个消费组信息
-        ```
-        /bin/kafka-consumer-groups --bootstrap-server localhost:9092  --describe --group consumer03
-        ```
-- 查看topic
-    - 查看topic列表
-        ```
-        ./bin/kafka-topics.sh --zookeeper localhost:2181 --list
-        ```
-    - 查看指定topic信息
-        ```
-        ./bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic Hello-Kafka
-        ```
-    - 修改topic分区数
-        ```
-        ./bin/kafka-topics.sh --zookeeper localhost：2181 --alter --topic Hello-Kafka --partitions 3
-        ```
+```
+
+- 查看消费组列表
+```
+    ./bin/kafka-consumer-groups --bootstrap-server localhost:9092 --list
+```  
+- 查看某个消费组信息
+```
+    /bin/kafka-consumer-groups --bootstrap-server localhost:9092  --describe --group consumer03
+```
+- 查看topic列表
+```
+    ./bin/kafka-topics.sh --zookeeper localhost:2181 --list
+```
+- 查看指定topic信息
+```
+    ./bin/kafka-topics.sh --zookeeper localhost:2181 --describe --topic Hello-Kafka
+```
+- 修改topic分区数
+```
+    ./bin/kafka-topics.sh --zookeeper localhost：2181 --alter --topic Hello-Kafka --partitions 3
+```
     
 ## why need kafka?
 - 解藕消息的生产和消费
