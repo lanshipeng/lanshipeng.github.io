@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="echo.lan&#39;s Notes">
 <meta property="og:description" content="cli of kafka">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-15T07:00:49.306Z">
+<meta property="og:updated_time" content="2019-05-30T10:40:34.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kafka消息中间件">
 <meta name="twitter:description" content="cli of kafka">
@@ -399,7 +399,7 @@
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/Cellar/kafka/2.1.0</span><br><span class="line">bin/kafka-console-producer --broker-list localhost:9092 --topic test</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>start consumer</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    cd /usr/local/Cellar/kafka/2.1.0</span><br><span class="line">    ./bin/kafka-console-consumer --bootstrap-server localhost:9092 --group cousunmer --topic test --from-beginning</span><br><span class="line">    ``` </span><br><span class="line">- stop kafka</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    cd /usr/local/Cellar/kafka/2.1.0</span><br><span class="line">    ./bin/kafka-console-consumer --bootstrap-server localhost:9092 --group cousunmer --topic test --from-beginning  </span><br><span class="line">    ```        </span><br><span class="line">- stop kafka</span><br></pre></td></tr></table></figure>
 <p>  cd /usr/local/Cellar/kafka/2.1.0<br>   ./bin/kafka-server-stop</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 查看消费组</span><br><span class="line">    - 查看消费组列表</span><br></pre></td></tr></table></figure>
 <pre><code>./bin/kafka-consumer-groups --bootstrap-server localhost:9092 --list
